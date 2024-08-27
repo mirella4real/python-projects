@@ -1,0 +1,5 @@
+requestFirstNumber = "What's the first number?:"
+requestSecondNumber = "What's the next number?:"
+requestOperation = "Pick an operation: + - * /"
+requestRepeat = "Type 'y' to continue calculating with"
+requestRestart = "or type 'n' to start a new calculation:"
