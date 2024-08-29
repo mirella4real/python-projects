@@ -1,5 +1,5 @@
 invitation_to_play = "Do you want to play a game of Blackjack? Type 'y' or 'n':"
-declines_invitation_response = "You have asked to cancel the game."
+declines_invitation_response = "You have asked to cancel the game. Goodbye."
 your_cards = "Your cards:"
 current_score = "Your current score:"
 dealers_card = "The dealer's first card:"
