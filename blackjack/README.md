@@ -1,8 +1,6 @@
-#Blackjack Project
+# Blackjack Project
 
-- [sample game](https://games.washingtonpost.com/games/blackjack)
-
-### Project Requirements
+## [sample game](https://games.washingtonpost.com/games/blackjack)
 
 - The deck is unilimted in size
 - There are no jokers
