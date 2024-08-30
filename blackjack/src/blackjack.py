@@ -19,7 +19,7 @@ def get_cards_and_score(turn, hand):
     revealed_cards = "[ "
     for index, card in enumerate(hand["cards"]):
         if index == len(hand["cards"])-1:
-            if turn == "player" and hand["owner"] != "player":
+            if turn == "player" and hand["id"] != "player":
                 revealed_cards += "? ]"
             else:
                 revealed_cards += f"{card} ]"
@@ -36,7 +36,7 @@ def deal_card():
 
 def init_player(player):
     new_hand = {
-        "owner": player,
+        "id": player,
         "cards": [],
         "cards_string": "",
         "score": 0,
@@ -52,7 +52,7 @@ def get_game_state(game, player, dealer):
             game["loser"] = dealer
         elif player["score"] > 21:
             game["isOver"] = True
-            game["reason"] = "Over"
+            game["reason"] = "Over21"
             game["winner"] = dealer
             game["loser"] = player
     else:
@@ -63,25 +63,47 @@ def get_game_state(game, player, dealer):
             game["loser"] = player
         elif dealer["score"] > 21:
             game["isOver"] = True
-            game["reason"] = "Over"
+            game["reason"] = "Over21"
             game["winner"] = player
             game["loser"] = dealer
         else:
             if dealer["score"] > 16:
                 if dealer["score"] > player["score"]:
                     game["isOver"] = True
-                    game["reason"] = "Score"
+                    game["reason"] = "HighScore"
                     game["winner"] = dealer
                     game["loser"] = player
                 elif dealer["score"] < player["score"]:
                     game["isOver"] = True
-                    game["reason"] = "Score"
+                    game["reason"] = "HighScore"
                     game["winner"] = player
                     game["loser"] = dealer
                 else:
                     game["isOver"] = True
                     game["reason"] = "Draw"
     return game
+
+def game_over(game_state):
+    winner = game_state["winner"]
+    loser = game_state["loser"]
+    if game_state["reason"] == "Draw":
+        print(f"   {strings.you_draw}")
+    elif game_state["reason"] == "Over21":
+        if winner["id"] == "player":
+            print(f"   {strings.dealer_went_over}")
+        else:
+            print(f"   {strings.you_went_over}")
+    elif game_state["reason"] == "Blackjack":
+        if winner["id"] == "player":
+            print(f"   {strings.you_won_with_blackjack}")
+        else:
+            print(f"   {strings.dealer_won_with_blackjack}")
+    else:
+        if winner["id"] == "player":
+            print(f"   {strings.you_win}")
+        else:
+            print(f"   {strings.you_lose}")
+    print("\n\n")
 
 def end_game():
     print("\n" * 20)
@@ -96,6 +118,7 @@ def start_game():
         "winner": {},
         "loser": {}
     }
+    take_a_card = "n"
     player_hand = init_player("player")
     dealer_hand = init_player("dealer")
     # initial deal - player's turn
@@ -107,15 +130,13 @@ def start_game():
     dealer_hand = get_cards_and_score(game_state["turn"], dealer_hand)
     game_state = get_game_state(game_state, player_hand, dealer_hand)
 
-    if game_state["isOver"] == True:
-        game_over(game_state)
-    else:
+    if game_state["isOver"] == False:
         print(f"{strings.game_start}\n")
         print(f"   {strings.your_cards}        {player_hand['cards_string']} {strings.current_score} {player_hand['score']}")
         print(f"   {strings.dealers_card} {dealer_hand['cards_string']}\n")
         take_a_card = input(f"{strings.new_card_or_pass}\n").lower()
     
-    while take_a_card == 'y':
+    while game_state["isOver"] == False and take_a_card == 'y':
         player_hand["cards"].append(deal_card())
         player_hand = get_cards_and_score(game_state["turn"], player_hand)
         game_state = get_game_state(game_state, player_hand, dealer_hand)
@@ -123,20 +144,18 @@ def start_game():
             print(f"   {strings.your_cards}        {player_hand['cards_string']} {strings.current_score} {player_hand['score']}")
             print(f"   {strings.dealers_card} {dealer_hand['cards_string']}\n")
             take_a_card = input(f"{strings.new_card_or_pass}\n").lower()
-        else:
-            break
-    
+            
     if game_state["isOver"] == False:
         game_state["turn"] = "dealer"
         while game_state["isOver"] == False:
+            dealer_hand["cards"].append(deal_card())
             dealer_hand = get_cards_and_score(game_state["turn"], dealer_hand)
             game_state = get_game_state(game_state, player_hand, dealer_hand)
     
     if game_state["isOver"] == True:
+        print(f"   {strings.your_cards}        {player_hand['cards_string']} {strings.current_score} {player_hand['score']}")
+        print(f"   {strings.dealers_card} {dealer_hand['cards_string']} {strings.dealer_score} {dealer_hand['score']}\n")
         game_over(game_state)
-
-def game_over(game):
-    print(game)
-    init()
+        init()
 
 init()
