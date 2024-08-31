@@ -83,7 +83,7 @@ def get_game_state(game, player, dealer):
                     game["reason"] = "Draw"
     return game
 
-def game_over(game_state):
+def game_over_message(game_state):
     winner = game_state["winner"]
     loser = game_state["loser"]
     game_status_message = ""
@@ -157,7 +157,7 @@ def start_game():
     if game_state["isOver"] == True:
         print(f"   {strings.your_cards}        {player_hand['cards_string']} {strings.current_score} {player_hand['score']}")
         print(f"   {strings.dealers_card} {dealer_hand['cards_string']} {strings.dealer_score} {dealer_hand['score']}\n")
-        print(f"   {game_over(game_state)}")
+        print(f"   {game_over_message(game_state)}")
         print("\n\n")
         init()
 
