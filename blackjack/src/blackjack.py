@@ -86,24 +86,26 @@ def get_game_state(game, player, dealer):
 def game_over(game_state):
     winner = game_state["winner"]
     loser = game_state["loser"]
+    game_status_message = ""
     if game_state["reason"] == "Draw":
-        print(f"   {strings.you_draw}")
+        game_status_message = strings.you_draw
     elif game_state["reason"] == "Over21":
         if winner["id"] == "player":
-            print(f"   {strings.dealer_went_over}")
+            game_status_message = strings.dealer_went_over
         else:
-            print(f"   {strings.you_went_over}")
+            game_status_message = strings.you_went_over
     elif game_state["reason"] == "Blackjack":
         if winner["id"] == "player":
-            print(f"   {strings.you_won_with_blackjack}")
+            game_status_message = strings.you_won_with_blackjack
         else:
-            print(f"   {strings.dealer_won_with_blackjack}")
+            game_status_message = strings.dealer_won_with_blackjack
     else:
         if winner["id"] == "player":
-            print(f"   {strings.you_win}")
+            game_status_message = strings.you_win
         else:
-            print(f"   {strings.you_lose}")
-    print("\n\n")
+            game_status_message = strings.you_lose
+    return game_status_message
+    
 
 def end_game():
     print("\n" * 20)
@@ -155,7 +157,8 @@ def start_game():
     if game_state["isOver"] == True:
         print(f"   {strings.your_cards}        {player_hand['cards_string']} {strings.current_score} {player_hand['score']}")
         print(f"   {strings.dealers_card} {dealer_hand['cards_string']} {strings.dealer_score} {dealer_hand['score']}\n")
-        game_over(game_state)
+        print(f"   {game_over(game_state)}")
+        print("\n\n")
         init()
 
 init()
