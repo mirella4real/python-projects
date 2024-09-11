@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [high-low game - 20240911](https://github.com/mirella4real/python-projects/tree/main/high-low)
+
+A simple CLI high-low game. With input validation. From the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+- pending: unit tests.
+
 ### [number-guessing-game - 20240909](https://github.com/mirella4real/python-projects/tree/main/number-guessing-game)
 
 A simple CLI number guessing game. Scope, constants and single responsibility. From the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
