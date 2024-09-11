@@ -1,0 +1,7 @@
+compare_a = "Compare A:"
+against_b = "Against B:"
+ask_for_guess = "Who has more followers? Type 'A' or 'B':"
+correct_answer = "You're right!"
+current_score = "Current score:"
+wrong_answer = "Sorry, that's wrong."
+final_score = "Final score:"
