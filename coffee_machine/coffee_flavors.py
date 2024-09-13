@@ -1,6 +1,5 @@
-data = [
-    {
-        'flavor': 'Espresso',
+data = {
+    'espresso': {
         'recipe': {
             'water':
             {
@@ -16,8 +15,7 @@ data = [
         },
         'price': 150,
     },
-    {
-        'flavor': 'Latte',
+    'latte': {
         'recipe': {
             'water':
             {
@@ -38,8 +36,7 @@ data = [
         },
         'price': 250,
     },
-    {
-        'flavor': 'Cappuccino',
+    'cappuccino': {
         'recipe': {
             'water':
             {
@@ -59,5 +56,5 @@ data = [
             } 
         },
         'price': 300
-    }
-]
+    },
+}
