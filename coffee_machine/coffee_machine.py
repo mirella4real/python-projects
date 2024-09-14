@@ -8,6 +8,7 @@ WATER = 'water'
 MILK = 'milk'
 MONEY = 'money'
 REPORT = 'report'
+OFF = 'off'
 NOT_FOUND = 'not found'
 coffee_machine = machine_capacity.initial_capacity
 
@@ -92,9 +93,12 @@ def update_coffee_machine(drink):
         coffee_machine[ingredient]['amount'] = coffee_machine[ingredient]['amount'] - drink['recipe'][ingredient]['amount']
     
 def run_service():
+    can_serve = True
     drink_order = input(strings.prompt_for_order).lower()
     if drink_order == REPORT:
         print_report(coffee_machine)
+    elif drink_order == OFF:
+        can_serve = False
     else:
         drink_details = get_drink_details(drink_order)
         if drink_details["recipe"] == NOT_FOUND:
@@ -117,13 +121,17 @@ def run_service():
                         print(f"{strings.here_is} ${change} {strings.in_change}")
                     update_coffee_machine(drink_details)
                     print(f"{strings.here_is_your} {drink_order}. {strings.enjoy}")
+    return can_serve
 
 def init():
     can_serve = True        
     while can_serve == True:
-        run_service()
-        can_serve = is_machine_on()
+        can_serve = run_service()
         if can_serve == False:
             print(strings.machine_off_message)
+        else:
+            can_serve = is_machine_on()
+            if can_serve == False:
+                print(strings.machine_empty_message)
 
 init()
