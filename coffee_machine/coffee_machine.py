@@ -28,6 +28,15 @@ def get_drink_details(drink_order):
         }
     return drink_details
 
+def is_machine_on():
+    isOn = True
+    for item in coffee_machine:
+        if coffee_machine[item] != 'money':
+            if coffee_machine[item]['amount'] == 0:
+                isOn = False
+                break
+    return isOn
+
 def check_machine_resources(drink_details, machine):
     machine_status = {
         'can_make_drink': True
@@ -39,38 +48,78 @@ def check_machine_resources(drink_details, machine):
             break
     return machine_status
 
+def charge_for_drink(drink_price):
+    transaction = {
+        'cleared': True,
+        'change': 0
+    }
+    try:
+        quarters = int(input(f"{strings.ask_for_quarters} "))
+        quarters = quarters * coin_values.cents['Quarter']
+    except ValueError:
+        quarters = 0
+    try:
+        dimes = int(input(f"{strings.ask_for_dimes} "))
+        dimes = dimes * coin_values.cents['Dime']
+    except ValueError:
+        dimes = 0
+    try:
+        nickles = int(input(f"{strings.ask_for_nickles} "))
+        nickles = nickles * coin_values.cents['Nickel']
+    except ValueError:
+        nickles = 0
+    try:
+        pennies = int(input(f"{strings.ask_for_pennies} "))
+        pennies = pennies * coin_values.cents['Penny']
+    except ValueError:
+        pennies = 0
+    total_cents = quarters + dimes + nickles + pennies
+    if total_cents >= drink_price:
+        transaction['change'] = total_cents - drink_price
+    else:
+        transaction['cleared'] = False
+    return transaction
+
+def update_coffee_machine(drink):
+    coffee_machine['money']['amount'] = coffee_machine['money']['amount'] + drink['price']
+    for ingredient in drink['recipe']:
+        coffee_machine[ingredient]['amount'] = coffee_machine[ingredient]['amount'] - drink['recipe'][ingredient]['amount']
+    
 def run_service():
-    can_serve = True
     drink_order = input(strings.prompt_for_order).lower()
     if drink_order == REPORT:
         print_report(coffee_machine)
-        can_serve = True
     else:
         drink_details = get_drink_details(drink_order)
         if drink_details["recipe"] == NOT_FOUND:
             print(strings.bad_order_message)
-            can_serve = True
         else:
             is_machine_stocked = check_machine_resources(drink_details, coffee_machine)
             if is_machine_stocked['can_make_drink'] == False:
                 print(f"{strings.not_ennough_message} {is_machine_stocked['reason']}.")
-                can_serve = True
             else:
                 cost = drink_details['price'] / 100
                 cost = "%.2f" % cost
                 print(f"{strings.that_will_cost} {cost}.")
                 print(strings.insert_coins)
-                quarters = int(input(f"{strings.ask_for_quarters} "))
-                dimes = int(input(f"{strings.ask_for_dimes} "))
-                nickles = int(input(f"{strings.ask_for_nickles} "))
-                pennies = int(input(f"{strings.ask_for_pennies} "))
-                can_serve = False
-            can_serve = False
-    return can_serve
+                transaction = charge_for_drink(drink_details['price'])
+                if transaction['cleared'] == False:
+                    print(strings.not_enough_money)
+                else:
+                    if transaction['change'] > 0:
+                        if transaction['change'] > 99:
+                            change =  transaction['change'] / 100
+                            change = "%.2f" % change
+                        print(f"{strings.here_is} ${change} {strings.in_change}")
+                    update_coffee_machine(drink_details)
+                    print(f"{strings.here_is_your} {drink_order}. {strings.enjoy}")
 
 def init():
     can_serve = True        
     while can_serve == True:
-        can_serve = run_service()
+        run_service()
+        can_serve = is_machine_on()
+        if can_serve == False:
+            print(strings.machine_off_message)
 
 init()
