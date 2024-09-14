@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [coffee_machine - 20240913](https://github.com/mirella4real/python-projects/tree/main/coffee_machine)
+
+A CLI coffee machine. Intermediate project with input validation and some unit tests. From the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+- pending: more unit tests.
+
 ### [high-low game - 20240911](https://github.com/mirella4real/python-projects/tree/main/high-low)
 
 A simple CLI high-low game. With input validation. From the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
