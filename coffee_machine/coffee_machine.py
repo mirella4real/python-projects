@@ -31,10 +31,9 @@ def get_drink_details(drink_order):
 def is_machine_on():
     isOn = True
     for item in coffee_machine:
-        if coffee_machine[item] != 'money':
-            if coffee_machine[item]['amount'] == 0:
-                isOn = False
-                break
+        if item != 'money' and coffee_machine[item]['amount'] == 0:
+            isOn = False
+            break
     return isOn
 
 def check_machine_resources(drink_details, machine):
@@ -80,6 +79,13 @@ def charge_for_drink(drink_price):
         transaction['cleared'] = False
     return transaction
 
+def get_change(transaction_change):
+    change = transaction_change
+    if change > 0:
+        change =  change / 100
+        change = "%.2f" % change
+    return change
+
 def update_coffee_machine(drink):
     coffee_machine['money']['amount'] = coffee_machine['money']['amount'] + drink['price']
     for ingredient in drink['recipe']:
@@ -106,10 +112,8 @@ def run_service():
                 if transaction['cleared'] == False:
                     print(strings.not_enough_money)
                 else:
-                    if transaction['change'] > 0:
-                        if transaction['change'] > 99:
-                            change =  transaction['change'] / 100
-                            change = "%.2f" % change
+                    if(transaction['change']) > 0:
+                        change = get_change(transaction['change'])
                         print(f"{strings.here_is} ${change} {strings.in_change}")
                     update_coffee_machine(drink_details)
                     print(f"{strings.here_is_your} {drink_order}. {strings.enjoy}")
