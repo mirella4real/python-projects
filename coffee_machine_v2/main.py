@@ -24,13 +24,20 @@ def run_service():
         if ordered_menu_item.get_name() == "":
             print(strings.bad_order_message)
         else:
-            ### left off here - something not working
-            can_make_drink = my_coffee_maker.is_resource_sufficient(ordered_menu_item)
-            if can_make_drink == False:
-                print(can_make_drink)
+            can_serve = my_coffee_maker.is_resource_sufficient(ordered_menu_item)
+            if can_serve['can_serve'] == False:
+                print(f"{strings.not_ennough_message} {can_serve['reason']}.")
             else:
-                print(ordered_menu_item.get_name())
-        can_continue_service = False
+                cost = ordered_menu_item.get_cost()
+                cost = "%.2f" % cost
+                print(f"{strings.that_will_cost} {cost}.")
+                print(strings.insert_coins)
+                payment_cleared = my_register.make_payment(ordered_menu_item.get_cost())
+                if payment_cleared == False:
+                    print(strings.not_enough_money)
+                else:
+                    if my_coffee_maker.make_coffee(ordered_menu_item) == True:
+                        print(f"{strings.here_is_your} {drink_order}. {strings.enjoy}")
     return can_continue_service
 
 def init():

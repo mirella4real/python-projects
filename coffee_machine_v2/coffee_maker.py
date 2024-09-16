@@ -34,16 +34,17 @@ class CoffeeMaker:
     def is_resource_sufficient(self, drink):
         """Returns a dictionary with 'can_make_drink' as Boolean, and 'reason' string with low ingredient"""
         machine_status = {
-            'can_make_drink': True
+            'can_serve': True
         }
         for item in drink.ingredients:
             if drink.ingredients[item] > self.resources[item]:
-                machine_status['can_make_drink'] = False
+                machine_status['can_serve'] = False
                 machine_status['reason'] = item
                 break
         return machine_status
     
     def make_coffee(self, order):
         for item in order.ingredients:
+            print(item)
             self.resources[item] -= order.ingredients[item]
         return True
