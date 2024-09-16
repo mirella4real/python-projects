@@ -1,6 +1,11 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [coffee_machine_v2 - 20240916](https://github.com/mirella4real/python-projects/tree/main/coffee_machine_v2)
+
+An OOO version of the CLI coffee machine project. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+
 ### [coffee_machine - 20240913](https://github.com/mirella4real/python-projects/tree/main/coffee_machine)
 
 A CLI coffee machine. Intermediate project with input validation and some unit tests. From the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
