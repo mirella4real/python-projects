@@ -1,4 +1,4 @@
-prompt_for_order = "What would you like? (espresso/latte/cappuccino): "
+prompt_for_order = "What would you like to order?"
 water = "Water"
 milk = 'Milk'
 coffee = "Coffee"
