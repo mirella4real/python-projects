@@ -21,6 +21,7 @@ class Menu:
         return options
     
     def find_drink(self, order_name):
+        """Returns a MenuItem object with drink ingredients. If drink is not found, the object's name property will be empty"""
         menu_item = MenuItem(name="", water=0, milk=0, coffee=0, cost=2.0)
         for item in self.menu:
              if item.name == order_name:
