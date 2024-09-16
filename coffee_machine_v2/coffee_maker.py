@@ -22,6 +22,15 @@ class CoffeeMaker:
         table.align = "l"
         return table
     
+    def is_machine_on(self):
+        """Checks if any resoruces are at 0 and returns Boolean accordingly."""
+        isOn = True
+        for item in self.resources:
+            if self.resources[item] == 0:
+                isOn = False
+                break
+        return isOn
+    
     def is_resource_sufficient(self, drink):
         can_make = True
         for item in drink.ingredients:
