@@ -23,7 +23,7 @@ class CoffeeMaker:
         return table
     
     def is_machine_on(self):
-        """Checks if any resoruces are at 0 and returns Boolean accordingly."""
+        """Checks if any resoruces are at 0 and returns if machine 'on' status."""
         isOn = True
         for item in self.resources:
             if self.resources[item] == 0:
@@ -32,11 +32,16 @@ class CoffeeMaker:
         return isOn
     
     def is_resource_sufficient(self, drink):
-        can_make = True
+        """Returns a dictionary with 'can_make_drink' as Boolean, and 'reason' string with low ingredient"""
+        machine_status = {
+            'can_make_drink': True
+        }
         for item in drink.ingredients:
             if drink.ingredients[item] > self.resources[item]:
-                can_make = False
-        return can_make
+                machine_status['can_make_drink'] = False
+                machine_status['reason'] = item
+                break
+        return machine_status
     
     def make_coffee(self, order):
         for item in order.ingredients:
