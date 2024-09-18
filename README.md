@@ -1,9 +1,15 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [quiz_game - 20240917](https://github.com/mirella4real/python-projects/tree/main/quiz_game)
+
+A simple OOP quiz game. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+- With this project I learned how to write classes in Python.
+
 ### [coffee_machine_v2 - 20240916](https://github.com/mirella4real/python-projects/tree/main/coffee_machine_v2)
 
-An OOO version of the CLI coffee machine project. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+An OOP version of the CLI coffee machine project. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
 
 ### [coffee_machine - 20240913](https://github.com/mirella4real/python-projects/tree/main/coffee_machine)
