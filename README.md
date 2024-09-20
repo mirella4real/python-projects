@@ -5,7 +5,7 @@ A personal repo for learning and experimentation.
 
 Learned how to set up my environment and how to import packages. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
-[turtle_graphics_fun.png](https://github.com/mirella4real/python-projects/blob/main/readme_images/turtle_graphics_fun.png)
+![turtle_graphics_fun.png](https://github.com/mirella4real/python-projects/blob/main/readme_images/turtle_graphics_fun.png)
 
 ### [quiz_game - 20240917](https://github.com/mirella4real/python-projects/tree/main/quiz_game)
 
