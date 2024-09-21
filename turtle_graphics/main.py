@@ -32,7 +32,6 @@ def draw_multi_shapes():
 def get_color():
     return random.choice(my_colors)
 
-
 def random_walk():
     length = 20
     my_turtle.width(10)
@@ -42,10 +41,26 @@ def random_walk():
         my_turtle.forward(length)
         my_turtle.setheading(random.choice(my_direction))
         
+def create_random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b)
+    
+def get_random_colors_walk():
+    length = 20
+    my_turtle.width(10)
+    my_turtle.speed(3)
+    for _ in range(100):
+        my_turtle.color(create_random_color())
+        my_turtle.forward(length)
+        my_turtle.setheading(random.choice(my_direction))
 
-random_walk()
+
 
 my_screen = Screen()
+my_screen.colormode(255)
+get_random_colors_walk()
 my_screen.exitonclick()
 
 
