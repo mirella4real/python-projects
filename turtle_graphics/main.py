@@ -56,18 +56,17 @@ def random_colors_walk():
         my_turtle.forward(length)
         my_turtle.setheading(random.choice(my_direction))
 
-def draw_spirograph():
-    my_heading = 0
-    while my_heading < 360:
-        my_turtle.setheading(my_heading)
+def draw_spirograph(gap):
+    my_turtle.speed("fast")
+    for _ in range(int(360/gap)):
         my_turtle.color(create_random_color())
         my_turtle.circle(100)
-        my_heading += 10
+        my_turtle.setheading(my_turtle.heading() + gap)
    
 
 my_screen = Screen()
 my_screen.colormode(255)
-draw_spirograph()
+draw_spirograph(10)
 my_screen.exitonclick()
 
 
