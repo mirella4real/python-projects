@@ -1,6 +1,13 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [hirst_painting - 20240921](https://github.com/mirella4real/python-projects/tree/main/hirst_painting)
+
+Replicated a Hirst dot painting using colorgram and turtle libraries. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+![turtle_graphics_fun.png](https://github.com/mirella4real/python-projects/blob/main/readme_images/hirst_painting.png)
+
+
 ### [turtle_graphics - 20240920](https://github.com/mirella4real/python-projects/tree/main/turtle_graphics)
 
 Learned how to set up my environment and how to import packages. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
