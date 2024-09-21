@@ -47,7 +47,7 @@ def create_random_color():
     b = random.randint(0, 255)
     return (r, g, b)
     
-def get_random_colors_walk():
+def random_colors_walk():
     length = 20
     my_turtle.width(10)
     my_turtle.speed(3)
@@ -56,11 +56,18 @@ def get_random_colors_walk():
         my_turtle.forward(length)
         my_turtle.setheading(random.choice(my_direction))
 
-
+def draw_spirograph():
+    my_heading = 0
+    while my_heading < 360:
+        my_turtle.setheading(my_heading)
+        my_turtle.color(create_random_color())
+        my_turtle.circle(100)
+        my_heading += 10
+   
 
 my_screen = Screen()
 my_screen.colormode(255)
-get_random_colors_walk()
+draw_spirograph()
 my_screen.exitonclick()
 
 
