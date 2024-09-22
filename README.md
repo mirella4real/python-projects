@@ -5,7 +5,7 @@ A personal repo for learning and experimentation.
 
 Replicated a Hirst dot painting using colorgram and turtle libraries. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
-![turtle_graphics_fun.png](https://github.com/mirella4real/python-projects/blob/main/readme_images/hirst_painting.png)
+<img src="readme_images/hirst_painting.png" width="300" />
 
 
 ### [turtle_graphics - 20240920](https://github.com/mirella4real/python-projects/tree/main/turtle_graphics)
