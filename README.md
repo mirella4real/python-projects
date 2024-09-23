@@ -1,7 +1,14 @@
 # python-projects
 A personal repo for learning and experimentation.
 
-### [hirst_painting - 20240923](https://github.com/mirella4real/python-projects/tree/main/more_turtle_graphics)
+### [turtle_race - 20240923](https://github.com/mirella4real/python-projects/tree/main/turtle_race)
+
+Kind of loving these turtles! A turtle race (randomly generated turtle instances, random colors, moving at random speeds). Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/turtle_race.png" width="250" />
+
+
+### [more_turtle_graphics - 20240923](https://github.com/mirella4real/python-projects/tree/main/more_turtle_graphics)
 
 Further exploration of the Turgle Graphics library. Learned about event listeners and higher order functions in Python. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
