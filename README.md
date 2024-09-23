@@ -1,6 +1,11 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [hirst_painting - 20240923](https://github.com/mirella4real/python-projects/tree/main/more_turtle_graphics)
+
+Further exploration of the Turgle Graphics library. Learned about event listeners and higher order functions in Python. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+
 ### [hirst_painting - 20240921](https://github.com/mirella4real/python-projects/tree/main/hirst_painting)
 
 Replicated a Hirst dot painting using colorgram and turtle libraries. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
