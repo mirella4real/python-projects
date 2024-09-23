@@ -1,0 +1,5 @@
+lost_message = "You lost!"
+won_message = "You won!"
+winner = "is the winner."
+popup_title = "Make your bet"
+popup_prompt = "Which turtle will win the race? Enter a color:"
