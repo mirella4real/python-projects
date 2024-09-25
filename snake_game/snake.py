@@ -4,6 +4,7 @@ class Snake:
 
     def __init__(self):
         self.snake_segments = []
+        self.MOVE_DISTANCE = 20
 
     def init_snake(self):
         for t in range(0, 3):
@@ -16,7 +17,25 @@ class Snake:
     def can_snake_move(self,x, y):
         print("bark!")
         return True
-    
+
+    def move_up(self):
+        head_coords = self.get_head_coords()
+        if self.can_snake_move(x=0, y=0) == True:
+            self.move(0, head_coords[0] + self.MOVE_DISTANCE, "n")
+        
+
+    def move_down(self):
+        self.can_snake_move(x=0, y=0)
+        #my_turtle.back(10)
+
+    def move_left(self):
+        self.can_snake_move(x=0, y=0)
+        #my_turtle.right(90)
+
+    def move_right(self):
+        self.can_snake_move(x=0, y=0)
+        #my_turtle.left(90)
+        
     def move(self, x, y, turn):
         start_index = len(self.snake_segments) -1
         for seg_num in range(start_index, 0, -1):
