@@ -14,9 +14,13 @@ class Snake:
             self.snake_segments[t].color("white")
             self.snake_segments[t].setx(t * -20)
     
-    def can_snake_move(self, move_to):
-        print("bark!")
-        return True
+    def can_snake_move(self,move_to):
+        can_move = True
+       # keep head from moving into itself
+        snake_body = (self.snake_segments[1].pos())
+        if move_to[0] == snake_body[0] and move_to[1] == snake_body[1]:
+            can_move = False
+        return can_move
 
     def move_up(self):
         head_coords = self.get_head_coords()
@@ -47,7 +51,6 @@ class Snake:
     def move(self, coords):
         start_index = len(self.snake_segments) -1
         for seg_num in range(start_index, 0, -1):
-            print(seg_num)
             move_to = self.snake_segments[seg_num -1].pos()
             self.snake_segments[seg_num].setx(move_to[0])
             self.snake_segments[seg_num].sety(move_to[1])
