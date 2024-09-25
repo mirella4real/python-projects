@@ -32,7 +32,7 @@ def init_game():
         temp_counter += 1
         if temp_counter > 100:
             in_play = False
-
+    print("done")
 init_game()
 
 screen.exitonclick()
