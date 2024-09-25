@@ -1,6 +1,10 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [snake_game - 20240924](https://github.com/mirella4real/python-projects/tree/main/snake_game)
+
+Began work on snake game. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
 ### [turtle_race - 20240923](https://github.com/mirella4real/python-projects/tree/main/turtle_race)
 
 Kind of loving these turtles! A turtle race (randomly generated turtle instances, random colors, moving at random speeds). Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
