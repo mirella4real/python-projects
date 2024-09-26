@@ -2,7 +2,7 @@ from turtle import Turtle
 ALIGNMENT = 'center'
 FONT = ('Arial', 20, 'normal')
 SCORE = 'Score: '
-GAME_OVER = 'Game Over'
+GAME_OVER = 'GAME OVER'
 class Scoreboard(Turtle):
 
     def __init__(self):
