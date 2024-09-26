@@ -22,13 +22,16 @@ def play_game():
     in_play = True
     temp_counter = 0
     while in_play == True:
-        snake.move_snake()
         screen.update()
         time.sleep(0.1)
+        snake.move_snake()
+        if snake.get_head().distance(food) < 15:
+            food.refresh()
+
         temp_counter += 1
-        if temp_counter > 200:
+        if temp_counter > 300:
             in_play = False
-    print("done")
+            print("done")
 
 def init_game():
     snake.init_snake()
