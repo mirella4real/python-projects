@@ -31,7 +31,7 @@ def play_game():
             score.increase_score()
             food.refresh()
 
-        if snake.get_head().xcor() > 280 or snake.get_head().xcor() < -280 or snake.get_head().ycor() > 280 or snake.get_head().ycor() < -280:
+        if snake.get_head().xcor() > 290 or snake.get_head().xcor() < -290 or snake.get_head().ycor() > 290 or snake.get_head().ycor() < -290:
             score.game_over()
             in_play = False
 

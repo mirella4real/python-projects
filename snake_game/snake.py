@@ -54,9 +54,6 @@ class Snake:
             self.snake_segments[seg_num].setx(move_to[0])
             self.snake_segments[seg_num].sety(move_to[1])
         self.snake_segments[0].forward(MOVE_DISTANCE)
-
-    def get_head_coords(self):
-        return self.snake_segments[0].pos()
     
     def get_head(self):
         return self.snake_segments[0]
