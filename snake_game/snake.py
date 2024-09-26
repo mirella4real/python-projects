@@ -1,10 +1,15 @@
 from turtle import Turtle
 
+MOVE_DISTANCE = 20
+UP = 90
+RIGHT = 0
+DOWN = 270
+LEFT = 180
+
 class Snake:
 
     def __init__(self):
         self.snake_segments = []
-        self.MOVE_DISTANCE = 20
 
     def init_snake(self):
         for t in range(0, 3):
@@ -23,40 +28,35 @@ class Snake:
         return can_move
 
     def move_up(self):
-        head_coords = self.get_head_coords()
-        new_coords = (head_coords[0], head_coords[1] + self.MOVE_DISTANCE)
-        if self.can_snake_move(new_coords) == True:
-            self.move(new_coords)
+        head = self.get_head()
+        if head.heading() != DOWN:
+            head.setheading(UP)
         
-
     def move_down(self):
-        head_coords = self.get_head_coords()
-        new_coords = (head_coords[0], head_coords[1] - self.MOVE_DISTANCE)
-        if self.can_snake_move(new_coords) == True:
-            self.move(new_coords)
+        head = self.get_head()
+        if head.heading() != UP:
+            head.setheading(DOWN)
         
-
     def move_left(self):
-        head_coords = self.get_head_coords()
-        new_coords = head_coords[0] - self.MOVE_DISTANCE, head_coords[1]
-        if self.can_snake_move(new_coords) == True:
-            self.move(new_coords)
+        head = self.get_head()
+        if head.heading() != RIGHT:
+            head.setheading(LEFT)
 
     def move_right(self):
-        head_coords = self.get_head_coords()
-        new_coords = head_coords[0] + self.MOVE_DISTANCE, head_coords[1]
-        if self.can_snake_move(new_coords) == True:
-            self.move(new_coords)
-        
-    def move(self, coords):
+        head = self.get_head()
+        if head.heading() != LEFT:
+            head.setheading(RIGHT)
+
+    def move_snake(self):
         start_index = len(self.snake_segments) -1
         for seg_num in range(start_index, 0, -1):
             move_to = self.snake_segments[seg_num -1].pos()
             self.snake_segments[seg_num].setx(move_to[0])
             self.snake_segments[seg_num].sety(move_to[1])
-        self.snake_segments[0].setx(coords[0])
-        self.snake_segments[0].sety(coords[1])
+        self.snake_segments[0].forward(MOVE_DISTANCE)
 
     def get_head_coords(self):
         return self.snake_segments[0].pos()
-# 
+    
+    def get_head(self):
+        return self.snake_segments[0]
