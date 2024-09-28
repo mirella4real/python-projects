@@ -3,7 +3,9 @@ A personal repo for learning and experimentation.
 
 ### [snake_game - 20240924](https://github.com/mirella4real/python-projects/tree/main/snake_game)
 
-Began work on snake game. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+Recreated the snake game. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/snake_game.png" width="250" />
 
 ### [turtle_race - 20240923](https://github.com/mirella4real/python-projects/tree/main/turtle_race)
 
