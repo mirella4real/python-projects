@@ -30,10 +30,18 @@ def play_game():
         if snake.get_head().distance(food) < 15:
             score.increase_score()
             food.refresh()
+            snake.extend()
 
         if snake.get_head().xcor() > 290 or snake.get_head().xcor() < -290 or snake.get_head().ycor() > 290 or snake.get_head().ycor() < -290:
             score.game_over()
             in_play = False
+
+        for segment in snake.snake_segments:
+            if snake.get_head() == segment:
+                pass
+            elif snake.get_head().distance(segment) < 10:
+                score.game_over()
+                in_play = False
 
 def init_game():
     snake.init_snake()

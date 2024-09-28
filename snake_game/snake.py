@@ -13,11 +13,8 @@ class Snake:
 
     def init_snake(self):
         for t in range(0, 3):
-            turtle = Turtle("square")
-            turtle.penup()
-            self.snake_segments.append(turtle)
-            self.snake_segments[t].color("white")
-            self.snake_segments[t].setx(t * -20)
+            position = (t * -20, 0)
+            self.add_segment(position)
     
     def can_snake_move(self,move_to):
         can_move = True
@@ -57,3 +54,13 @@ class Snake:
     
     def get_head(self):
         return self.snake_segments[0]
+    
+    def extend(self):
+        self.add_segment(self.snake_segments[-1].position())
+    
+    def add_segment(self, position):
+        turtle = Turtle("square")
+        turtle.penup()
+        turtle.color("white")
+        turtle.goto(position[0], position[1])
+        self.snake_segments.append(turtle)
