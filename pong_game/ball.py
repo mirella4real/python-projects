@@ -14,16 +14,24 @@ class Ball(Turtle):
         self.y_move = MOVE_DISTANCE
         self.x_move = MOVE_DISTANCE
 
-    def move_ball(self, top, bottom):
+    def move_ball(self):
         old_x = self.ball.xcor()
         old_y = self.ball.ycor()
-        if old_y > top or old_y < bottom:
-            self.bounce_ball()
         new_x = old_x + self.x_move
         new_y = old_y + self.y_move
         self.ball.setpos(new_x, new_y)
-    
-    def bounce_ball(self):
+
+    def bounce_y(self):
         self.y_move *= -1
 
+    def bounce_x(self):
+        self.x_move *= -1
+
+    def get_x(self):
+        return self.ball.xcor()
     
+    def get_y(self):
+        return self.ball.ycor()
+    
+    def get_distance(self, target):
+        return self.ball.distance(target)

@@ -3,6 +3,12 @@ from paddle import Paddle
 from ball import Ball
 import time
 
+TOP = 280
+BOTTOM = -280
+RIGHT = 340
+LEFT = -340
+PADDLE_DISTANCE = 50
+
 my_screen = Screen()
 my_screen.bgcolor("black")
 my_screen.setup(800, 600)
@@ -24,9 +30,14 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     my_screen.update()
-    my_ball.move_ball(280, -280)
-    
+    my_ball.move_ball()
 
+    if my_ball.get_y() > TOP or my_ball.get_y() < BOTTOM:
+        my_ball.bounce_y()
+    
+    if my_ball.get_distance(right_paddle) < PADDLE_DISTANCE and my_ball.get_x() > RIGHT or my_ball.get_distance(left_paddle) < PADDLE_DISTANCE and my_ball.get_x() < LEFT:
+        my_ball.bounce_x()
+   
 my_screen.exitonclick()
 
 
