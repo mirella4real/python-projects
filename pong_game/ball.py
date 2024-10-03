@@ -10,9 +10,13 @@ class Ball(Turtle):
         self.ball.penup()
         self.ball.shapesize(1,1)
         self.ball.color("white")
-        self.ball.setpos(0,0)
         self.y_move = MOVE_DISTANCE
         self.x_move = MOVE_DISTANCE
+        self.ball.setpos(0,0)
+
+    def reset_ball(self):
+        self.ball.setpos(0,0)
+        self.bounce_x()
 
     def move_ball(self):
         old_x = self.ball.xcor()

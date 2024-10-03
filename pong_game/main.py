@@ -5,8 +5,10 @@ import time
 
 TOP = 280
 BOTTOM = -280
-RIGHT = 340
-LEFT = -340
+RIGHT = 320
+LEFT = -320
+RIGHT_BOUND = 400
+LEFT_BOUND = -400
 PADDLE_DISTANCE = 50
 
 my_screen = Screen()
@@ -34,9 +36,15 @@ while game_is_on:
 
     if my_ball.get_y() > TOP or my_ball.get_y() < BOTTOM:
         my_ball.bounce_y()
-    
+
     if my_ball.get_distance(right_paddle) < PADDLE_DISTANCE and my_ball.get_x() > RIGHT or my_ball.get_distance(left_paddle) < PADDLE_DISTANCE and my_ball.get_x() < LEFT:
         my_ball.bounce_x()
+
+    if my_ball.get_x() > RIGHT_BOUND:
+        my_ball.reset_ball()
+
+    if my_ball.get_x() < LEFT_BOUND:
+        my_ball.reset_ball()
    
 my_screen.exitonclick()
 
