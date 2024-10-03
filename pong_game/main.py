@@ -23,8 +23,9 @@ my_ball = Ball()
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
-    my_ball.move_ball()
     my_screen.update()
+    my_ball.move_ball(280, -280)
+    
 
 my_screen.exitonclick()
 
