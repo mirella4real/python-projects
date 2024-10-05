@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 TOP = 280
@@ -10,12 +11,16 @@ LEFT = -320
 RIGHT_BOUND = 400
 LEFT_BOUND = -400
 PADDLE_DISTANCE = 50
+LEFT_PLAYER = "left"
+RIGHT_PLAYER = "right"
 
 my_screen = Screen()
 my_screen.bgcolor("black")
 my_screen.setup(800, 600)
 my_screen.title("Pong")
 my_screen.tracer(0)
+
+my_scoreboard = Scoreboard()
 
 right_paddle = Paddle(350, 0)
 left_paddle = Paddle(-350, 0)
@@ -42,9 +47,11 @@ while game_is_on:
 
     if my_ball.get_x() > RIGHT_BOUND:
         my_ball.reset_ball()
+        my_scoreboard.increase_score(LEFT_PLAYER)
 
     if my_ball.get_x() < LEFT_BOUND:
         my_ball.reset_ball()
+        my_scoreboard.increase_score(RIGHT_PLAYER)
    
 my_screen.exitonclick()
 
