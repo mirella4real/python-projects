@@ -13,11 +13,12 @@ class Ball(Turtle):
         self.y_move = MOVE_DISTANCE
         self.x_move = MOVE_DISTANCE
         self.setpos(0,0)
-       
+        self.move_speed = 0.1
 
     def reset_ball(self):
         self.setpos(0,0)
         self.bounce_x()
+        self.move_speed = 0.1
 
     def move_ball(self):
         old_x = self.xcor()
@@ -31,6 +32,7 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
+        self.move_speed *= 0.9
 
     def get_x(self):
         return self.xcor()
