@@ -3,7 +3,9 @@ A personal repo for learning and experimentation.
 
 ### [pong_game - 20240930](https://github.com/mirella4real/python-projects/tree/main/pong_game)
 
-Began work on a pong game recreation. Leveraging class inheritance. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+Recreated Pong. Practicing classes and inheritance. Leveraging class inheritance. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/pong_game.png" width="250" />
 
 ### [snake_game - 20240924](https://github.com/mirella4real/python-projects/tree/main/snake_game)
 
