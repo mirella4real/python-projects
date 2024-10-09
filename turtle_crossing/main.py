@@ -11,6 +11,9 @@ my_screen.title("Turtle Crossing")
 my_screen.tracer(0)
 
 my_player = Player()
+my_car_manager = CarManager()
+my_car_manager.create_car(20, 60)
+my_car_manager.create_car(40, 60)
 
 my_screen.listen()
 my_screen.onkey(key="Up", fun=my_player.move_player)
