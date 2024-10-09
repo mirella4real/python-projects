@@ -1,9 +1,12 @@
 from turtle import Screen
+from player import Player
+from scoreboard import Scoreboard
+from car_manager import CarManager
 import time
 
 my_screen = Screen()
 my_screen.bgcolor("white")
-my_screen.setup(600, 600)
+my_screen.setup(width=600, height=600)
 my_screen.title("Turtle Crossing")
 my_screen.tracer(0)
 
