@@ -9,7 +9,7 @@ CAR_STARTING_LINE = 280
 CAR_END_LINE = -320
 ROAD_TOP = 250
 ROAD_BOTTOM = -250
-COLLISION_DISTANCE = 30
+COLLISION_DISTANCE = 20
 FINISH_LINE = 300
 
 my_screen = Screen()
@@ -18,6 +18,7 @@ my_screen.setup(width=600, height=600)
 my_screen.title("Turtle Crossing")
 my_screen.tracer(0)
 
+my_score = Scoreboard()
 my_player = Player()
 my_car_manager = CarManager()
 
@@ -34,9 +35,12 @@ while game_is_on:
     for car in my_car_manager.cars:
         if car.distance(my_player) < COLLISION_DISTANCE:
             game_is_on = False
+            my_score.show_game_over()
 
     if my_player.ycor() > FINISH_LINE:
         my_player.at_start()
         my_car_manager.increase_speed()
+        my_score.increase_score()
+        
 
 my_screen.exitonclick()
