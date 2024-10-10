@@ -1,12 +1,13 @@
 from turtle import Turtle
 import random
 
-SPEED = 5
+SPEED_INCREASE = 2
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 
 class CarManager():
     def __init__(self):
         self.cars = []
+        self.speed = 5
 
     def create_car(self, x_coor, y_coor):
         make_car = random.randint(1,6)
@@ -17,9 +18,12 @@ class CarManager():
         
     def move_cars(self, x_coor):
         for car in self.cars:
-            car.forward(SPEED)
+            car.forward(self.speed)
             if car.xcor() < x_coor:
                 self.cars.remove(car)
+
+    def increase_speed(self):
+        self.speed += SPEED_INCREASE
 
     
 
