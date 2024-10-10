@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [turtle_crossing - 20241009](https://github.com/mirella4real/python-projects/tree/main/turtle_crossing)
+
+Capstone project. Recreated the turtle crossing game. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/turtle_crossing.png" width="250" />
+
 ### [pong_game - 20240930](https://github.com/mirella4real/python-projects/tree/main/pong_game)
 
 Recreated Pong. Practicing classes and inheritance. Leveraging class inheritance. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
