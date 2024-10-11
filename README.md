@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [snake_game_plus - 20241010](https://github.com/mirella4real/python-projects/tree/main/snake_game_plus)
+
+Updated the snake game to leverage read/write functionality to keep a high score. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/snake_game_plus.png" width="250" />
+
 ### [turtle_crossing - 20241009](https://github.com/mirella4real/python-projects/tree/main/turtle_crossing)
 
 Capstone project. Recreated the turtle crossing game. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
