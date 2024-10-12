@@ -1,6 +1,10 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [mail_merge - 20241011](https://github.com/mirella4real/python-projects/tree/main/mail_merge)
+
+Learned how to read from a list in a file and combine with a template in another file. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
 ### [snake_game_plus - 20241010](https://github.com/mirella4real/python-projects/tree/main/snake_game_plus)
 
 Updated the snake game to leverage read/write functionality to keep a high score. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
