@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [us_states_game - 20241014](https://github.com/mirella4real/python-projects/tree/main/us_states_game)
+
+Fun with Pandas library! Can you remember the names of all US states? Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/us_states_game.png" width="250" />
+
 ### [mail_merge - 20241011](https://github.com/mirella4real/python-projects/tree/main/mail_merge)
 
 Learned how to read from a list in a file and combine with a template in another file. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
