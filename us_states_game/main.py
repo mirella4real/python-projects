@@ -30,10 +30,14 @@ def get_score(state_name):
 
 state_data = pandas.read_csv("./50_states.csv")
 
-play_game = True
-while play_game:
+while score < 50:
     # prompt
     state_name = my_screen.textinput(title=f"{PROMPT_TITLE} {score}/50", prompt=PROMPT_TEXT).title()
+    
+    # exit game
+    if state_name == "Exit":
+        break
+
     # check for duplicate guess
     if not state_name in correct_guesses:
         #check csv data
@@ -46,7 +50,3 @@ while play_game:
             write_state(state_n, state_x, state_y)
             score = get_score(state_n)
             
-    if score == 50:
-        play_game = False
-
-my_screen.exitonclick()
