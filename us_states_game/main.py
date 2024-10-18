@@ -28,6 +28,20 @@ def get_score(state_name):
     correct_guesses.append(state_name)
     return len(correct_guesses)
 
+def save_remaining_states():
+    state_list = state_data["state"].to_list()
+    remaining_states = []
+    for state in state_list:
+        if state not in correct_guesses:
+            remaining_states.append(state)
+    states_to_learn = {
+        "state": remaining_states
+    }
+    states_dataframe = pandas.DataFrame(states_to_learn)
+    states_dataframe.to_csv("states_to_learn.csv")
+            
+
+
 state_data = pandas.read_csv("./50_states.csv")
 
 while score < 50:
@@ -36,6 +50,7 @@ while score < 50:
     
     # exit game
     if state_name == "Exit":
+        save_remaining_states()
         break
 
     # check for duplicate guess
