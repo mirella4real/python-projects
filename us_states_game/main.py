@@ -30,10 +30,7 @@ def get_score(state_name):
 
 def save_remaining_states():
     state_list = state_data["state"].to_list()
-    remaining_states = []
-    for state in state_list:
-        if state not in correct_guesses:
-            remaining_states.append(state)
+    remaining_states = [state for state in state_list if state not in correct_guesses]
     states_to_learn = {
         "state": remaining_states
     }
