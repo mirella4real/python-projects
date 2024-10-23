@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [nato_alphabet - 20241022](https://github.com/mirella4real/python-projects/tree/main/nato_alphabet)
+
+Project using Pandas, list comprehension and dictionary comprehention to translate a string into a list of NATO phonetic alphabet items. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/nato_alphabet.png" width="250" />
+
 ### [us_states_game - 20241014](https://github.com/mirella4real/python-projects/tree/main/us_states_game)
 
 Fun with Pandas library! Can you remember the names of all US states? Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
