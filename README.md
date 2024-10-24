@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [mile_to_km_converter - 20241023](https://github.com/mirella4real/python-projects/tree/main/mile_to_km_converter)
+
+Project using Tkinter. Created a mile to km converter using Tkinter. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/mile_to_km_converter.png" width="250" />
+
 ### [nato_alphabet - 20241022](https://github.com/mirella4real/python-projects/tree/main/nato_alphabet)
 
 Project using Pandas, list comprehension and dictionary comprehention to translate a string into a list of NATO phonetic alphabet items. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
