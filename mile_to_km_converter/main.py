@@ -7,7 +7,9 @@ IS_EQUAL = "is equal to"
 BUTTON_LABEL = "Calculate"
 
 def convert_miles():
-    pass
+    miles = user_input.get()
+    kms = float(miles) * 1.609
+    result.config(text=round(kms,2))
 
 my_window = tkinter.Tk()
 my_window.title(WINDOW_TITLE)
@@ -22,13 +24,13 @@ input_label = tkinter.Label(text=MILES, font=FONT)
 input_label.grid(column=2, row=0)
 
 leyend_label = input_label = tkinter.Label(text=IS_EQUAL, font=FONT)
-input_label.grid(column=0, row=2)
+input_label.grid(column=0, row=1)
 
 result = tkinter.Label(text=0, font=FONT)
-result.grid(column=1, row=2)
+result.grid(column=1, row=1)
 
 result_label = tkinter.Label(text=KM, font=FONT)
-result_label.grid(column=2, row=2)
+result_label.grid(column=2, row=1)
 
 calculate_button = tkinter.Button(text=BUTTON_LABEL, command=convert_miles)
 calculate_button.grid(column=1, row=2)
