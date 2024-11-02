@@ -19,6 +19,7 @@ LONG_BREAK_MIN = 20
 
 timer_window = Tk()
 timer_window.title("Pomodoro")
+timer_window.config(padx=100, pady=50, bg=YELLOW)
 
 
 
