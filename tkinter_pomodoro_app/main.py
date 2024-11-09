@@ -6,9 +6,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 1 #25
+SHORT_BREAK_MIN = 1 #5
+LONG_BREAK_MIN = 1 #20
 
 timer_reps = 0
 TOTAL_REPS = 8
@@ -18,6 +18,8 @@ LONG_BREAK_REPS = 8
 
 timer_text = "00:00"
 timer_label_text = "Timer"
+TIMER_LABEL_WORK = "Work"
+TIMER_LABEL_BREAK = "Break"
 start_button_label = "Start"
 reset_button_label = "Reset"
 checkmark_symbol = "✓"
@@ -31,13 +33,24 @@ def start_timer():
     global timer_reps
     timer_reps += 1
     current_rep = (timer_reps % TOTAL_REPS)
+    print(current_rep)
     if current_rep in WORK_REPS:
         rep_minutes = WORK_MIN
+        timer_label_new_text = TIMER_LABEL_WORK
+        timer_label_new_color = GREEN
     elif current_rep in SHORT_BREAK_REPS:
         rep_minutes = SHORT_BREAK_MIN
+        timer_label_new_text = TIMER_LABEL_BREAK
+        timer_label_new_color = PINK
     else:
+        print("long break red")
         rep_minutes = LONG_BREAK_MIN
+        timer_label_new_text = TIMER_LABEL_BREAK
+        timer_label_new_color = RED
     count_down(rep_minutes * 60)
+    timer_label.config(text=timer_label_new_text)
+    timer_label.config(fg=timer_label_new_color)
+    
     
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
