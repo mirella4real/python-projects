@@ -6,9 +6,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1 #25
-SHORT_BREAK_MIN = 1 #5
-LONG_BREAK_MIN = 1 #20
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 20
 
 timer_reps = 0
 TOTAL_REPS = 8
@@ -33,7 +33,6 @@ def start_timer():
     global timer_reps
     timer_reps += 1
     current_rep = (timer_reps % TOTAL_REPS)
-    print(current_rep)
     if current_rep in WORK_REPS:
         rep_minutes = WORK_MIN
         timer_label_new_text = TIMER_LABEL_WORK
