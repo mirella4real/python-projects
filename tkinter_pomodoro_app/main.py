@@ -23,7 +23,7 @@ TIMER_LABEL_BREAK = "Break"
 start_button_label = "Start"
 reset_button_label = "Reset"
 checkmark_symbol = "✓"
-checkmark_text = checkmark_symbol
+checkmarks = []
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 
@@ -31,6 +31,7 @@ checkmark_text = checkmark_symbol
 
 def start_timer():
     global timer_reps
+    global checkmarks
     timer_reps += 1
     current_rep = (timer_reps % TOTAL_REPS)
     if current_rep in WORK_REPS:
@@ -41,8 +42,13 @@ def start_timer():
         rep_minutes = SHORT_BREAK_MIN
         timer_label_new_text = TIMER_LABEL_BREAK
         timer_label_new_color = PINK
+        checkmarks.append(checkmark_symbol)
+        checkmark_text = "".join(checkmarks)
+        checkmarks_label.config(text= checkmark_text)
     else:
-        print("long break red")
+        checkmarks = []
+        checkmark_text = ""
+        checkmarks_label.config(text= checkmark_text)
         rep_minutes = LONG_BREAK_MIN
         timer_label_new_text = TIMER_LABEL_BREAK
         timer_label_new_color = RED
@@ -92,7 +98,7 @@ start_button.grid(column=0, row=2)
 reset_button = Button(text=reset_button_label, highlightbackground=YELLOW)
 reset_button.grid(column=2, row=2)
 
-checkmarks_label = Label(text=checkmark_text, font=(FONT_NAME, 30, "bold"), fg=GREEN, bg=YELLOW)
+checkmarks_label = Label(font=(FONT_NAME, 30, "bold"), fg=GREEN, bg=YELLOW)
 checkmarks_label.grid(column=1, row=3)
 
 
