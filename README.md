@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [tkinter_pomodoro_app - 20241104](https://github.com/mirella4real/python-projects/tree/main/tkinter_pomodoro_app)
+
+Project using Tkinter. Created a timer app that leverages the pomodoro concept. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/tkinter_pomodoro_app.png" width="250" />
+
 ### [mile_to_km_converter - 20241023](https://github.com/mirella4real/python-projects/tree/main/mile_to_km_converter)
 
 Project using Tkinter. Created a mile to km converter using Tkinter. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
