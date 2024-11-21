@@ -23,7 +23,6 @@ def gen_pwd():
 
 def delete_input_values():
     input_website.delete(0, END)
-    input_email_username.delete(0, END)
     input_pwd.delete(0, END)
 
 app_window = Tk()
