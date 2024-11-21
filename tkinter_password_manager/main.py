@@ -11,6 +11,21 @@ COLOR_WHITE = "#ffffff"
 COLOR_BLACK = "#000000"
 FONT_NAME = "Courier"
 
+def save():
+    data_string = f"{input_website.get()} | {input_email_username.get()} | {input_pwd.get()}"
+    with open("data.txt", mode="a") as file:
+        file.write(f"{data_string}\n")
+    delete_input_values()
+
+def gen_pwd():
+    # TODO: temp hardcoded value
+    input_pwd.insert(0, string="12345")
+
+def delete_input_values():
+    input_website.delete(0, END)
+    input_email_username.delete(0, END)
+    input_pwd.delete(0, END)
+
 app_window = Tk()
 app_window.title(STR_TITLE)
 app_window.config(padx=20, pady=20, bg=COLOR_WHITE)
@@ -41,11 +56,11 @@ input_pwd = Entry(width=21)
 input_pwd.grid(column=1, row=3, sticky="NW")
 
 # generate password
-button_gen_pwd = Button(text=STR_GEN_PWD, highlightbackground=COLOR_WHITE)
+button_gen_pwd = Button(text=STR_GEN_PWD, highlightbackground=COLOR_WHITE, command=gen_pwd)
 button_gen_pwd.grid(column=2, row=3, sticky="NW")
 
 # add password
-button_add = Button(text=STR_ADD, highlightbackground=COLOR_WHITE, width=36)
+button_add = Button(text=STR_ADD, highlightbackground=COLOR_WHITE, width=36, command=save)
 button_add.grid(column=1, row=4, columnspan=2, sticky="NW")
 
 app_window.mainloop()
