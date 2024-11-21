@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 COMMONLY_USED_EMAIL = "myemail@email.com"
 STR_TITLE = "Password Manager"
@@ -7,15 +8,24 @@ STR_EMAIL_UNAME = "Email/Username"
 STR_PWD = "Password"
 STR_GEN_PWD = "Generate Password"
 STR_ADD = "Add"
+STR_CONFIRM = "Please confirm the details entered."
+STR_ASK_SAVE = "Is it ok to save?"
 COLOR_WHITE = "#ffffff"
 COLOR_BLACK = "#000000"
 FONT_NAME = "Courier"
 
 def save():
-    data_string = f"{input_website.get()} | {input_email_username.get()} | {input_pwd.get()}"
-    with open("data.txt", mode="a") as file:
-        file.write(f"{data_string}\n")
-    delete_input_values()
+    website = input_website.get()
+    email = input_email_username.get()
+    pwd = input_pwd.get()
+
+    is_ok = messagebox.askokcancel(title=website, message=f"{STR_CONFIRM} \nWebsite: {website}\nEmail: {email} \nPassword: {pwd} \n{STR_ASK_SAVE}")
+    
+    if is_ok:
+        data_string = f"{website} | {email} | {pwd}\n"
+        with open("data.txt", mode="a") as file:
+            file.write(f"{data_string}")
+        delete_input_values()
 
 def gen_pwd():
     # TODO: temp hardcoded value
