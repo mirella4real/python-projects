@@ -4,20 +4,13 @@ numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = [ '!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 def generate_pwd():
-    nr_letters = random.randint(8, 10)
-    nr_numbers = random.randint(2, 4)
-    nr_symbols = random.randint(2, 4)
     pwd = ""
-
-    for char in range(1, nr_letters + 1):
-        pwd += random.choice(letters)
-
-    for char in range(1, nr_numbers + 1):
-        pwd += random.choice(numbers)
-
-    for char in range(1, nr_symbols + 1):
-        pwd += random.choice(symbols)
-
+    random_letters = "".join([random.choice(letters) for char in range(random.randint(8, 10))])
+    pwd += random_letters
+    random_numbers = "".join([random.choice(numbers) for char in range(random.randint(2, 4))])
+    pwd += random_numbers
+    random_symbols = "".join([random.choice(symbols) for char in range(random.randint(2, 4))])
+    pwd += random_symbols
     password = list(pwd) 
     random.shuffle(password)
     pwd = "".join(password)
