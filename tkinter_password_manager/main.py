@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from passwordgenerator import generate_pwd
 
 COMMONLY_USED_EMAIL = "myemail@email.com"
 STR_TITLE = "Password Manager"
@@ -10,6 +11,7 @@ STR_GEN_PWD = "Generate Password"
 STR_ADD = "Add"
 STR_CONFIRM = "Please confirm the details entered."
 STR_ASK_SAVE = "Is it ok to save?"
+STR_WARN_EMPTY_FIELDS = "Please don't leave any fields empty!"
 COLOR_WHITE = "#ffffff"
 COLOR_BLACK = "#000000"
 FONT_NAME = "Courier"
@@ -19,17 +21,20 @@ def save():
     email = input_email_username.get()
     pwd = input_pwd.get()
 
-    is_ok = messagebox.askokcancel(title=website, message=f"{STR_CONFIRM} \nWebsite: {website}\nEmail: {email} \nPassword: {pwd} \n{STR_ASK_SAVE}")
-    
-    if is_ok:
-        data_string = f"{website} | {email} | {pwd}\n"
-        with open("data.txt", mode="a") as file:
-            file.write(f"{data_string}")
-        delete_input_values()
+    if len(email) == 0 or len(website) == 0 or len(pwd) == 0:
+        messagebox.showinfo(title="Missing inf", message=STR_WARN_EMPTY_FIELDS)
+    else:
+        is_ok = messagebox.askokcancel(title=website, message=f"{STR_CONFIRM} \nWebsite: {website}\nEmail: {email} \nPassword: {pwd} \n{STR_ASK_SAVE}")
+        
+        if is_ok:
+            data_string = f"{website} | {email} | {pwd}\n"
+            with open("data.txt", mode="a") as file:
+                file.write(f"{data_string}")
+            delete_input_values()
 
 def gen_pwd():
-    # TODO: temp hardcoded value
-    input_pwd.insert(0, string="12345")
+    input_pwd.delete(0, END)
+    input_pwd.insert(0, string=generate_pwd())
 
 def delete_input_values():
     input_website.delete(0, END)
