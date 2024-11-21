@@ -34,8 +34,10 @@ def save():
             delete_input_values()
 
 def gen_pwd():
+    pwd = string=generate_pwd()
     input_pwd.delete(0, END)
-    input_pwd.insert(0, string=generate_pwd())
+    input_pwd.insert(0, pwd)
+    pyperclip.copy(pwd)
 
 def delete_input_values():
     input_website.delete(0, END)
