@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+import pyperclip
 from passwordgenerator import generate_pwd
 
 COMMONLY_USED_EMAIL = "myemail@email.com"
