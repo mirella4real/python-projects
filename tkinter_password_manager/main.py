@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
+from passwordgenerator import PasswordGenerator
 import pyperclip
-from passwordgenerator import generate_pwd
 
 COMMONLY_USED_EMAIL = "myemail@email.com"
 STR_TITLE = "Password Manager"
@@ -34,7 +34,7 @@ def save():
             delete_input_values()
 
 def gen_pwd():
-    pwd = string=generate_pwd()
+    pwd = PasswordGenerator.generate_pwd()
     input_pwd.delete(0, END)
     input_pwd.insert(0, pwd)
     pyperclip.copy(pwd)
