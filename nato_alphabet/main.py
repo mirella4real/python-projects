@@ -10,7 +10,9 @@ line_breaks = "\n\n"
 def generate_phonetic():
     
     user_input = input(f"{line_breaks}Enter a word you would like translated to the Nato phonetic alphabet: \n").upper()
-    
+    # commenting this out and saving alternate: it validates the input and only translates the letters that are in the dictionary
+    # program_output = [phonetic_alpha_dict[letter] for letter in user_input if letter in phonetic_alpha_dict]
+
     try:
         program_output = [phonetic_alpha_dict[letter] for letter in user_input]
     except KeyError:
