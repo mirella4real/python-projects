@@ -10,6 +10,7 @@ STR_WEBSITE = "Website"
 STR_EMAIL_UNAME = "Email/Username"
 STR_PWD = "Password"
 STR_GEN_PWD = "Generate Password"
+STR_SEARCH = "Search"
 STR_ADD = "Add"
 STR_CONFIRM = "Please confirm the details entered."
 STR_ASK_SAVE = "Is it ok to save?"
@@ -17,6 +18,10 @@ STR_WARN_EMPTY_FIELDS = "Please don't leave any fields empty!"
 COLOR_WHITE = "#ffffff"
 COLOR_BLACK = "#000000"
 FONT_NAME = "Courier"
+FONT_SIZE = 14
+
+def search():
+    pass
 
 def save():
     website = input_website.get()
@@ -77,21 +82,25 @@ app_canvas.create_image(100, 102, image=app_logo_image)
 app_canvas.grid(column=1, row=0)
 
 # website
-label_website = Label(text=STR_WEBSITE, font=(FONT_NAME, 20, "normal"), fg=COLOR_BLACK, bg=COLOR_WHITE)
+label_website = Label(text=STR_WEBSITE, font=(FONT_NAME, FONT_SIZE, "normal"), fg=COLOR_BLACK, bg=COLOR_WHITE)
 label_website.grid(column=0, row=1, sticky="NW")
-input_website = Entry(width=35)
+input_website = Entry(width=21)
 input_website.focus()
-input_website.grid(column=1, row=1, columnspan=2, sticky="NW")
+input_website.grid(column=1, row=1, sticky="NW")
+
+# search
+button_search = Button(text=STR_SEARCH, highlightbackground=COLOR_WHITE, command=search)
+button_search.grid(column=2, row=1, sticky="NW", ipadx=38)
 
 # email/username
-label_email_username = Label(text=STR_EMAIL_UNAME, font=(FONT_NAME, 20, "normal"), fg=COLOR_BLACK, bg=COLOR_WHITE)
+label_email_username = Label(text=STR_EMAIL_UNAME, font=(FONT_NAME, FONT_SIZE, "normal"), fg=COLOR_BLACK, bg=COLOR_WHITE)
 label_email_username.grid(column=0, row=2, sticky="NW")
-input_email_username = Entry(width=35)
+input_email_username = Entry(width=38)
 input_email_username.insert(0, string=COMMONLY_USED_EMAIL)
 input_email_username.grid(column=1, row=2, columnspan=2, sticky="NW")
 
 # password
-label_pwd = Label(text=STR_PWD, font=(FONT_NAME, 20, "normal"), fg=COLOR_BLACK, bg=COLOR_WHITE)
+label_pwd = Label(text=STR_PWD, font=(FONT_NAME, FONT_SIZE, "normal"), fg=COLOR_BLACK, bg=COLOR_WHITE)
 label_pwd.grid(column=0, row=3, sticky="NW")
 input_pwd = Entry(width=21)
 input_pwd.grid(column=1, row=3, sticky="NW")
