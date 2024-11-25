@@ -41,15 +41,20 @@ def save_to_json(website: str, email: str, pwd: str):
             "password": pwd
         }
     }
-    with open("data.json", mode="r") as file:
-        # load saved data
-        saved_creds = json.load(file)
+    try:
+        with open("data.json", mode="r") as file:
+            # load saved data
+            saved_creds = json.load(file)
+    except FileNotFoundError:
+        with open("data.json", mode="w") as file:
+            json.dump(new_entry, file, indent=4)
+    else:
         # apped saved data with new data
         saved_creds.update(new_entry)
+        with open("data.json", mode="w") as file:
+            # save updated data
+            json.dump(saved_creds, file, indent=4)
     
-    with open("data.json", mode="w") as file:
-        # save updated data
-        json.dump(saved_creds, file, indent=4)
 
 def gen_pwd():
     pwd = PasswordGenerator.generate_pwd()
