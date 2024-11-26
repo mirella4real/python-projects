@@ -23,6 +23,20 @@ FONT_NAME = "Courier"
 FONT_SIZE = 14
 
 def find_password():
+    """
+    Searches for the password and email associated with a given website in a JSON file.
+
+    Prompts the user to enter a website name. If the website name is empty, displays an informational message.
+    If the JSON file containing saved credentials is not found, displays an informational message.
+    If the website is found in the saved credentials, copies the password to the clipboard and displays the email and password.
+    If the website is not found in the saved credentials, displays an informational message.
+
+    Raises:
+        FileNotFoundError: If the JSON file containing saved credentials is not found.
+
+    Returns:
+        None
+    """
     website = input_website.get()
     if len(website) == 0:
         messagebox.showinfo(title="", message=STR_SEARCH_EPTY_FIELD)
@@ -44,6 +58,21 @@ def find_password():
                 messagebox.showinfo(title="", message=STR_SEARCH_NOT_FOUND)
 
 def save():
+    """
+    Saves the website, email, and password information after validating the input fields.
+    
+    Retrieves the values from the input fields for website, email, and password. If any of the fields are empty,
+    it shows a warning message. Otherwise, it asks for confirmation to save the data. If confirmed, it saves the 
+    data to a JSON file and clears the input fields.
+
+    Raises:
+        messagebox.showinfo: If any of the input fields are empty.
+        messagebox.askokcancel: To confirm saving the data.
+
+    Calls:
+        save_to_json(website, email, pwd): Saves the data to a JSON file.
+        delete_input_values(): Clears the input fields.
+    """
     website = input_website.get()
     email = input_email_username.get()
     pwd = input_pwd.get()
@@ -57,6 +86,19 @@ def save():
             delete_input_values()
 
 def save_to_json(website: str, email: str, pwd: str):
+    """
+    Save the provided website, email, and password to a JSON file.
+
+    If the JSON file does not exist, it will be created. If it does exist, the new entry will be added to the existing data.
+
+    Args:
+        website (str): The website for which the credentials are being saved.
+        email (str): The email associated with the website.
+        pwd (str): The password associated with the website.
+
+    Raises:
+        FileNotFoundError: If the file cannot be found or opened.
+    """
     new_entry = {
         website: {
             "email": email,
@@ -79,12 +121,32 @@ def save_to_json(website: str, email: str, pwd: str):
     
 
 def gen_pwd():
+    """
+    Generates a new password using the PasswordGenerator, updates the input field with the new password,
+    and copies the password to the clipboard.
+
+    This function performs the following steps:
+    1. Generates a new password using the PasswordGenerator.generate_pwd() method.
+    2. Clears the current content of the input_pwd field.
+    3. Inserts the newly generated password into the input_pwd field.
+    4. Copies the newly generated password to the clipboard using pyperclip.copy().
+
+    Returns:
+        None
+    """
     pwd = PasswordGenerator.generate_pwd()
     input_pwd.delete(0, END)
     input_pwd.insert(0, pwd)
     pyperclip.copy(pwd)
 
 def delete_input_values():
+    """
+    Clears the input fields for website and password.
+
+    This function deletes the current text in the input fields
+    for the website and password, effectively resetting them
+    to be empty.
+    """
     input_website.delete(0, END)
     input_pwd.delete(0, END)
 
