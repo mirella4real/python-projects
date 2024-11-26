@@ -1,6 +1,13 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [tkinter_password_manager_v2 - 20241126](https://github.com/mirella4real/python-projects/tree/main/tkinter_password_manager_v2)
+
+Project using Tkinter. Iterated on the password manager app. Added exception handling, saving and retrieving json data, search functionality and used Gen AI to document functions. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/tkinter_password_manager_v2.png" width="290" />
+
+
 ### [tkinter_password_manager - 20241121](https://github.com/mirella4real/python-projects/tree/main/tkinter_password_manager)
 
 Project using Tkinter. Created a password manager app. Learned more about labels, input fields, buttons, dialog boxes and validation. The app generates random passwords, copies to clipboard and saves to a txt file. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
