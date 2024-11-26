@@ -11,6 +11,8 @@ STR_EMAIL_UNAME = "Email/Username"
 STR_PWD = "Password"
 STR_GEN_PWD = "Generate Password"
 STR_SEARCH = "Search"
+STR_SEARCH_NOT_FOUND = "Website not found."
+STR_SEARCH_EPTY_FIELD = "Please enter a website to search."
 STR_ADD = "Add"
 STR_CONFIRM = "Please confirm the details entered."
 STR_ASK_SAVE = "Is it ok to save?"
@@ -20,8 +22,26 @@ COLOR_BLACK = "#000000"
 FONT_NAME = "Courier"
 FONT_SIZE = 14
 
-def search():
-    pass
+def find_password():
+    website = input_website.get()
+    if len(website) == 0:
+        messagebox.showinfo(title="", message=STR_SEARCH_EPTY_FIELD)
+    else:
+        try:
+            with open("data.json", mode="r") as file:
+                # load saved data
+                saved_creds = json.load(file)
+        except FileNotFoundError:
+            messagebox.showinfo(title="", message=STR_SEARCH_NOT_FOUND)
+        else:
+            if website in saved_creds:
+                password = saved_creds[website]["password"]
+                email = saved_creds[website]["email"]
+                pyperclip.copy(password)
+                messagebox.showinfo(title="", message=f"Login credentials for {website} \n\nEmail: {email}\n Password: {password} \n\nPassword has been coppied to the clipboard.")
+
+            else:
+                messagebox.showinfo(title="", message=STR_SEARCH_NOT_FOUND)
 
 def save():
     website = input_website.get()
@@ -29,13 +49,10 @@ def save():
     pwd = input_pwd.get()
 
     if len(email) == 0 or len(website) == 0 or len(pwd) == 0:
-        messagebox.showinfo(title="Missing inf", message=STR_WARN_EMPTY_FIELDS)
+        messagebox.showinfo(title="", message=STR_WARN_EMPTY_FIELDS)
     else:
         is_ok = messagebox.askokcancel(title=website, message=f"{STR_CONFIRM} \nWebsite: {website}\nEmail: {email} \nPassword: {pwd} \n{STR_ASK_SAVE}")
         if is_ok:
-            # data_string = f"{website} | {email} | {pwd}\n"
-            # with open("data.txt", mode="a") as file:
-            #     file.write(f"{data_string}")
             save_to_json(website, email, pwd)
             delete_input_values()
 
@@ -89,7 +106,7 @@ input_website.focus()
 input_website.grid(column=1, row=1, sticky="NW")
 
 # search
-button_search = Button(text=STR_SEARCH, highlightbackground=COLOR_WHITE, command=search)
+button_search = Button(text=STR_SEARCH, highlightbackground=COLOR_WHITE, command=find_password)
 button_search.grid(column=2, row=1, sticky="NW", ipadx=38)
 
 # email/username
