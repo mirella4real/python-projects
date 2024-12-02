@@ -12,7 +12,7 @@ words_dictionary = words.to_dict(orient="records")
 
 # Display new random word
 def get_random_word():
-    random_word = random.choice(list(words_dictionary))
+    random_word = random.choice(words_dictionary)
     app_canvas.itemconfig(card_term, text=random_word["French"])
 # Create the UI using Tkinter
 app_window = Tk()
