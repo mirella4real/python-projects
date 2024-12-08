@@ -58,7 +58,7 @@ def remove_word():
 
 def save_words(word_dictionaries_list):
     words = pandas.DataFrame(word_dictionaries_list)
-    
+    words.to_csv("./data/words_to_learn.csv", index=False)
 
 # Import data using pandas library
 try:
