@@ -15,9 +15,7 @@ active_word = {
     "English": "part"
 }
 
-# Import data using pandas library
-words = pandas.read_csv("./data/french_words.csv")
-words_dictionary = words.to_dict(orient="records")
+
 
 # Flip card
 def flip_card():
@@ -43,6 +41,20 @@ def get_random_word():
     active_word = random.choice(words_dictionary)
     app_canvas.itemconfig(card_term, text=active_word[active_language])
     flip_timer = app_window.after(3000, flip_card)
+
+def remove_word():
+    pass
+
+def save_words(words_dictionary):
+    pass
+
+# Import data using pandas library
+try:
+    words = pandas.read_csv("./data/words_to_learn.csv")
+except FileNotFoundError:
+    words = pandas.read_csv("./data/french_words.csv")
+    words.to_csv("./data/words_to_learn.csv", index=False)
+words_dictionary = words.to_dict(orient="records")
 
 # Create the UI using Tkinter
 app_window = Tk()
