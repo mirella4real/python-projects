@@ -1,6 +1,15 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [flashcard_app - 202412_08](https://github.com/mirella4real/python-projects/tree/main/flashcard_app)
+
+Project using Tkinter and Pandas. A flashcard app that keeps track of which words have not been learned.  Intermediate Capstone project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+Pending: Handling when all words have been learned.
+
+<img src="readme_images/flashcard_app.png" width="290" />
+
+
 ### [tkinter_password_manager_v2 - 20241126](https://github.com/mirella4real/python-projects/tree/main/tkinter_password_manager_v2)
 
 Project using Tkinter. Iterated on the password manager app. Added exception handling, saving and retrieving json data, search functionality and used Gen AI to document functions. Intermediate project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.

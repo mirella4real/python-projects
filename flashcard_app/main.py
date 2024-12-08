@@ -9,6 +9,7 @@ BACKGROUND_COLOR = "#B1DDC6"
 LANGUAGE_FRENCH = "French"
 LANGUAGE_ENGLISH = "English"
 FONT= "Ariel"
+TIMER_LENGTH = 6000
 active_language = LANGUAGE_FRENCH
 active_word_dictionary = {
     "French": "partie",
@@ -42,7 +43,7 @@ def get_random_word():
         flip_card()
     active_word_dictionary = random.choice(word_dictionaries_list)
     app_canvas.itemconfig(card_term, text=active_word_dictionary[active_language])
-    flip_timer = app_window.after(3000, flip_card)
+    flip_timer = app_window.after(TIMER_LENGTH, flip_card)
 
 def remove_word():
     global word_dictionaries_list, flip_timer
@@ -72,7 +73,7 @@ word_dictionaries_list = words.to_dict(orient="records")
 app_window = Tk()
 app_window.title(STR_TITLE)
 app_window.config(padx=50, pady=50, background=BACKGROUND_COLOR)
-flip_timer = app_window.after(3000, flip_card)
+flip_timer = app_window.after(TIMER_LENGTH, flip_card)
 
 app_canvas = Canvas(width=800, height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
 card_front_image = PhotoImage(file="./images/card_front.png")
