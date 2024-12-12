@@ -1,7 +1,15 @@
 # python-projects
 A personal repo for learning and experimentation.
 
-### [flashcard_app - 202412_08](https://github.com/mirella4real/python-projects/tree/main/flashcard_app)
+
+### [motivational_quotes - 20241211](https://github.com/mirella4real/python-projects/tree/main/motivational_quotes)
+
+Send a weekly motivational quote via email.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/motivational_quotes.png" width="290" />
+
+
+### [flashcard_app - 20241208](https://github.com/mirella4real/python-projects/tree/main/flashcard_app)
 
 Project using Tkinter and Pandas. A flashcard app that keeps track of which words have not been learned.  Intermediate Capstone project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
