@@ -1,6 +1,10 @@
 import datetime as dt
 import random
+import smtplib
+from config import my_email, my_password, my_recipient, my_smtp
 
+SUBJECT = "Motivational Quote"
+GREETING = "Hello Mirella!\nHere is your weekly motivational quote:"
 now = dt.datetime.now()
 day_of_the_week = now.weekday()
 quotes_list = []
@@ -20,7 +24,17 @@ def get_random_quote():
     quote = random.choice(quotes_list)
     return quote
 
+def send_email(quote):
+    with smtplib.SMTP(my_smtp) as connection:
+        connection.starttls()
+        connection.login(user=my_email, password=my_password)
+        connection.sendmail(
+            from_addr=my_email, 
+            to_addrs=my_recipient, 
+            msg=f"Subject:{SUBJECT}\n\n{GREETING}\n{quote}")
+
 #wednesday is 2
 if day_of_the_week == 2:
     quote_of_the_day = get_random_quote()
-    print(quote_of_the_day)
+    send_email(quote_of_the_day)
+    
