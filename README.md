@@ -1,6 +1,11 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+### [birthday_wisher - 20241213](https://github.com/mirella4real/python-projects/tree/main/birthday_wisher)
+
+Read a csv file with people's birthdays and send a birthday greeting via email any birthdays fall on current date.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/birthday_wisher.png" width="290" />
 
 ### [motivational_quotes - 20241211](https://github.com/mirella4real/python-projects/tree/main/motivational_quotes)
 
