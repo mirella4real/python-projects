@@ -1,4 +1,4 @@
-import requests, datetime, smtplib
+import requests, datetime, smtplib, time
 from geopy import distance
 from config import MY_LAT, MY_LONG, TZID, my_email, my_password, my_recipient, my_smtp
 
@@ -28,25 +28,33 @@ def send_email(message, recipient_email):
             to_addrs=recipient_email, 
             msg=f"Subject:The ISS is overhead!\n\n{message}")
 
+def is_iss_overhead():
+    is_overhead = False
+    iss_position = call_api(ISS_IS_NOW)
+    longitude = iss_position["iss_position"]["longitude"]
+    latitude = iss_position["iss_position"]["latitude"]
+    iss_position = (latitude, longitude)
+    my_position = (MY_LAT, MY_LONG)
+    distance_from_me = distance.distance(iss_position, my_position).miles
+    if distance_from_me < 500:
+        is_overhead = True
+    return is_overhead
 
-iss_position = call_api(ISS_IS_NOW)
-longitude = iss_position["iss_position"]["longitude"]
-latitude = iss_position["iss_position"]["latitude"]
-iss_position = (latitude, longitude)
-my_position = (MY_LAT, MY_LONG)
-distance_from_me = distance.distance(iss_position, my_position).miles
-
-
-sunrise_sunset_data = call_api(SUNRISE_SUNSET, parameters=parameters)
-sunrise = sunrise_sunset_data["results"]["sunrise"].split("T")[1].split(":")[0]
-sunset = sunrise_sunset_data["results"]["sunset"].split("T")[1].split(":")[0]
-timenow = datetime.datetime.now()
-
-
-if distance_from_me < 2500: 
+def is_dark_outside():
+    is_dark = False
+    sunrise_sunset_data = call_api(SUNRISE_SUNSET, parameters=parameters)
+    sunrise = sunrise_sunset_data["results"]["sunrise"].split("T")[1].split(":")[0]
+    sunset = sunrise_sunset_data["results"]["sunset"].split("T")[1].split(":")[0]
+    timenow = datetime.datetime.now()
     if timenow.hour >= int(sunset) or timenow.hour <= int(sunrise):
+        is_dark = True
+    return is_dark
+
+while True:
+    time.sleep(60)
+    if is_iss_overhead() and is_dark_outside(): 
         message = "The ISS is flying over your location and it is dark enough so see!"
         send_email(message, my_recipient)
-        
+            
    
 
