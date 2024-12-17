@@ -1,6 +1,12 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+
+### [birthday_wisher - 20241216](https://github.com/mirella4real/python-projects/tree/main/iss_overhead_notifier)
+
+Using the API from http://open-notify.org/, obtain data from NASA to track the ISS, determine if it is visible from my location and send an email alert.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+
 ### [birthday_wisher - 20241213](https://github.com/mirella4real/python-projects/tree/main/birthday_wisher)
 
 Read a csv file with people's birthdays and send a birthday greeting via email any birthdays fall on current date.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
