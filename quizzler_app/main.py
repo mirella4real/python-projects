@@ -1,5 +1,6 @@
 from question_model import Question # type: ignore
 from quiz_brain import QuizBrain
+from ui import QuizInterface
 import requests
 import html
 
@@ -53,11 +54,12 @@ def end_quiz(my_quiz_brain):
 def init():
     if create_question_bank() == True:
         my_quiz_brain = QuizBrain(question_bank)
+        my_quiz_ui = QuizInterface()
         can_run_quiz = my_quiz_brain.has_questions_left()
-        while can_run_quiz == True:
-            question = my_quiz_brain.next_question()
-            run_quiz(my_quiz_brain, question)
-            can_run_quiz = my_quiz_brain.has_questions_left()
-        end_quiz(my_quiz_brain)
+        # while can_run_quiz == True:
+        #     question = my_quiz_brain.next_question()
+        #     run_quiz(my_quiz_brain, question)
+        #     can_run_quiz = my_quiz_brain.has_questions_left()
+        # end_quiz(my_quiz_brain)
 
 init()
