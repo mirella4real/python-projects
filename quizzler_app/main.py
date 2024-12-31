@@ -10,10 +10,8 @@ CORRECT_ANSWER = "The correct answer was:"
 END_MESSAGE = "You've completed the quiz!"
 FINAL_SCORE = "Your final score was:"
 question_bank = []
-parameters = {
-    "amount": 10,
-    "type": "boolean"
-}
+
+
 
 def call_api(api_url, parameters=None):
     if parameters != None:
@@ -24,6 +22,10 @@ def call_api(api_url, parameters=None):
     return response.json()
 
 def create_question_bank():
+    parameters = {
+        "amount": 10,
+        "type": "boolean"
+    }
     data = call_api("https://opentdb.com/api.php", parameters)
 
     for question in data["results"]:
