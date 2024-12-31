@@ -1,6 +1,7 @@
 from question_model import Question # type: ignore
 from quiz_brain import QuizBrain
 import requests
+import html
 
 CORRECT = "Correct!"
 WRONG = "Wrong answer."
@@ -29,7 +30,7 @@ def create_question_bank():
     data = call_api("https://opentdb.com/api.php", parameters)
 
     for question in data["results"]:
-        question_bank.append(Question(question['question'], question['correct_answer']))
+        question_bank.append(Question(html.unescape(question['question']), question['correct_answer']))
     return True
 
 def run_quiz(my_quiz_brain, question):
