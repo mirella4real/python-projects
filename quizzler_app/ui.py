@@ -6,6 +6,8 @@ BACKGROUND_COLOR = "#ffffff"
 FONT = ("Arial", 20, "italic")
 FONT_SCORE = ("Arial", 14, "normal")
 SCORE_LABEL = "Score:"
+END_MESSAGE = "You've finished the quiz!"
+FINAL_SCORE = "Your final score was:"
 
 class QuizInterface:
 
@@ -58,12 +60,21 @@ class QuizInterface:
         self.give_feedback(is_correct)
         self.app_window.after(1000, self.show_new_question)
 
+    def end_quiz(self):
+        self.false_button.config(state="disabled")
+        self.true_button.config(state="disabled")
+        score = self.quiz.get_score()
+        self.app_canvas.itemconfig(self.question_text, text=f"{END_MESSAGE}\n{FINAL_SCORE} {score}")
+
     def show_new_question(self):
+        self.app_canvas.config(bg="#ffffff")
         score = self.quiz.get_score()
         self.score_label.config(text=f"{SCORE_LABEL} {score}")
-        self.app_canvas.config(bg="#ffffff")
-        question = self.quiz.next_question()
-        self.app_canvas.itemconfig(self.question_text, text=f"Q.{question.number}: {question.text}")
+        if self.quiz.has_questions_left():
+            question = self.quiz.next_question()
+            self.app_canvas.itemconfig(self.question_text, text=f"Q.{question.number}: {question.text}")
+        else:
+            self.end_quiz()
 
 
 

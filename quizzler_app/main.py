@@ -4,16 +4,7 @@ from ui import QuizInterface
 import requests
 import html
 
-CORRECT = "Correct!"
-WRONG = "Wrong answer."
-YOUR_CURRENT_SCORE = "Your current score is"
-OUT_OF = "out of"
-CORRECT_ANSWER = "The correct answer was:"
-END_MESSAGE = "You've completed the quiz!"
-FINAL_SCORE = "Your final score was:"
 question_bank = []
-
-
 
 def call_api(api_url, parameters=None):
     if parameters != None:
@@ -33,11 +24,6 @@ def create_question_bank():
     for question in data["results"]:
         question_bank.append(Question(html.unescape(question['question']), question['correct_answer']))
     return True
-
-def end_quiz(my_quiz_brain):
-    print("\n")
-    print(f"{END_MESSAGE}")
-    print(f"{FINAL_SCORE} {my_quiz_brain.get_score()}/{my_quiz_brain.get_total_questions()}\n")
 
 def init():
     if create_question_bank() == True:
