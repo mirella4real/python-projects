@@ -2,6 +2,13 @@
 A personal repo for learning and experimentation.
 
 
+### [quizzler_app - 20250101](https://github.com/mirella4real/python-projects/tree/main/quizzler_app)
+
+Created a quiz app that connects to the Open Trivia API.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/quizzler_app.png" width="290" />
+
+
 ### [iss_overhead_notifier - 20241216](https://github.com/mirella4real/python-projects/tree/main/iss_overhead_notifier)
 
 Using the API from http://open-notify.org/, obtain data from NASA to track the ISS, determine if it is visible from my location and send an email alert.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
