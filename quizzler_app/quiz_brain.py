@@ -15,7 +15,8 @@ class QuizBrain:
         """Returns true if there are any questions left"""
         return self.question_number < len(self.question_list)
     
-    def is_correct_answer(self, question, response):
+    def check_answer(self, response:str) -> bool:
+        question = self.question_list[self.question_number - 1]
         if question.answer.lower() == response:
             self.correct_answers += 1
             return True

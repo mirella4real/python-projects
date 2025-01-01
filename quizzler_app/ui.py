@@ -31,19 +31,38 @@ class QuizInterface:
         self.display_next_question()
 
         self.true_image = PhotoImage(file="./images/true.png")
-        self.true_button = Button(image=self.true_image, highlightbackground=BACKGROUND_COLOR, highlightthickness=0)
+        self.true_button = Button(image=self.true_image, highlightbackground=BACKGROUND_COLOR, highlightthickness=0, command=self.true_pressed)
         self.true_button.grid(column=0, row=2, pady=20)
 
         self.false_image = PhotoImage(file="./images/false.png")
-        self.false_button = Button(image=self.false_image, highlightbackground=BACKGROUND_COLOR, highlightthickness=0)
+        self.false_button = Button(image=self.false_image, highlightbackground=BACKGROUND_COLOR, highlightthickness=0, command=self.false_pressed)
         self.false_button.grid(column=1, row=2, pady=20)
-
 
         self.app_window.mainloop()
 
+    def true_pressed(self):
+        self.check_answer("true")
+    
+    def false_pressed(self):
+        self.check_answer("false")
+
+    def give_feedback(self, is_correct):
+        if is_correct == True:
+            self.app_canvas.config(bg="#008000")
+        else:
+            self.app_canvas.config(bg="#ff0000")
+
+    def check_answer(self, response):
+        is_correct = self.quiz.check_answer(response)
+        self.give_feedback(is_correct)
+        self.app_window.after(1000, self.display_next_question)
+
     def display_next_question(self):
+        self.app_canvas.config(bg="#ffffff")
         question = self.quiz.next_question()
         self.app_canvas.itemconfig(self.question_text, text=f"Q.{question.number}: {question.text}")
-        print(question.text)
-        print(question.answer)
-        print(question.number)
+
+
+
+
+    
