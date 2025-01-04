@@ -2,7 +2,7 @@
 A personal repo for learning and experimentation.
 
 
-### [rain-alert - 20250101](https://github.com/mirella4real/python-projects/tree/main/rain-alert)
+### [rain-alert - 20250104](https://github.com/mirella4real/python-projects/tree/main/rain-alert)
 
 Send a WhatsApp message with a rain alert using Twilio and Open Weather Map API.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
