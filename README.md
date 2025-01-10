@@ -3,7 +3,7 @@ A personal repo for learning and experimentation.
 
 ### [stock-trading-news-alert - 20250109](https://github.com/mirella4real/python-projects/tree/main/stock-trading-news-alert)
 
-Retrieve stock closing price. If closing price is 5% higher or lower, retrieve the three latest news areticles and send a WhatsApp message with a stock news alert. This project leverages Twilio, NewsAPI and AphaVantage APIs.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+Retrieve closing stock price. If closing price is 5% higher or lower, retrieve the three latest news articles and send a WhatsApp message with a stock news alert. This project leverages Twilio, NewsAPI and AphaVantage APIs.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
 
 <img src="readme_images/stock-trading-news-alert.png" width="290" />
 
