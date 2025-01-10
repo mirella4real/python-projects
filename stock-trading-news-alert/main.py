@@ -18,7 +18,7 @@ def call_api(api_url, parameters=None):
 
 def compute_percentage_difference(final:float, initial:float)->float:
     percentage_change = (final-initial)/initial * 100
-    return percentage_change
+    return int(percentage_change)
 
 def get_stock_data():
     parameters = {
@@ -42,15 +42,16 @@ def get_closing_status(stock_data)->dict:
     yesterday_close = float(stock_data["Time Series (Daily)"][daily_keys[1]]['4. close'])
     closing_status["difference"] = compute_percentage_difference(today_close, yesterday_close)
     if today_close > yesterday_close:
-        closing_status["status"] = "Increase"
+        closing_status["status"] = "🔺"
     elif yesterday_close > today_close:
-        closing_status["status"] = "Decrease"
+        closing_status["status"] = "🔻"
     return closing_status
 
 def get_related_news():
     from_date = date.today() - timedelta(days=1)
     parameters = {
         "q": "IBM",
+        "searchin": "title",
         "from": from_date,
         "language": "en",
         "apiKey": NEWSAPI_KEY
@@ -61,11 +62,36 @@ def get_related_news():
         news_response = call_api(NEWSAPI_ENDPOINT, parameters)
     return news_response
 
+def get_formatted_stock_alert(news_response):
+    stock_alert = {
+        "header": f"{STOCK}: {closing_status["status"]}{closing_status["difference"]}%",
+        "articles": []
+    }
+    total_results = news_response["totalResults"]
+    if total_results > 0:
+        stock_alert["articles"].append({
+            "headline": f"Headline: {news_response['articles'][0]['title']}",
+            "brief": f"Brief: {news_response['articles'][0]['description']}"
+        })
+        if total_results > 1:
+            stock_alert["articles"].append({
+                "headline": f"Headline: {news_response['articles'][1]['title']}",
+                "brief": f"Brief: {news_response['articles'][1]['description']}"
+            })
+            if total_results > 2:
+                stock_alert["articles"].append({
+                    "headline": f"Headline: {news_response['articles'][2]['title']}",
+                    "brief": f"Brief: {news_response['articles'][2]['description']}"
+                })
+    return stock_alert
+
 
 stock_data = get_stock_data()
 closing_status = get_closing_status(stock_data)
 if closing_status["difference"] >= 5:
-    stock_news = get_related_news()
-
+    news_response = get_related_news()
+    stock_alert = get_formatted_stock_alert(news_response)
+    
+    
 
 
