@@ -1,4 +1,5 @@
 from config import *
+from twilio.rest import Client
 from datetime import date, timedelta
 from test_data import *
 import requests
@@ -85,12 +86,24 @@ def get_formatted_stock_alert(news_response):
                 })
     return stock_alert
 
+def send_sms(sms_message):
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_TOKEN)
+    message = client.messages.create(
+        body=sms_message,
+        from_=whatsapp_sender_number,
+        to=whatsapp_recipient_number,
+    )
 
 stock_data = get_stock_data()
 closing_status = get_closing_status(stock_data)
 if closing_status["difference"] >= 5:
     news_response = get_related_news()
     stock_alert = get_formatted_stock_alert(news_response)
+    if len(stock_alert["articles"]) > 0:
+        for article in stock_alert["articles"]:
+            message = f"{stock_alert["header"]}\n{article["headline"]}\n{article["brief"]}"
+            send_sms(message)
+
     
     
 
