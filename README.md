@@ -1,6 +1,13 @@
 # python-projects
 A personal repo for learning and experimentation.
 
+
+### [habit_tracker - 20250114](https://github.com/mirella4real/python-projects/tree/main/habit_tracker)
+
+Created a graph similar to GitHub's graph for tracking number of minutes studying. This project leverages Pixela API. Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/habit_tracker.png" width="290" />
+
 ### [stock-trading-news-alert - 20250109](https://github.com/mirella4real/python-projects/tree/main/stock-trading-news-alert)
 
 Retrieve closing stock price. If closing price is 5% higher or lower, retrieve the three latest news articles and send a WhatsApp message with a stock news alert. This project leverages Twilio, NewsAPI and AphaVantage APIs.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
