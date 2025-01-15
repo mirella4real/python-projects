@@ -30,14 +30,22 @@ def post_a_pixel():
     response = requests.post(url=f"{PIXELA_GRAPH_ENDPOINT}/graph1", json=post_pixel, headers=headers)
     print(response.text)
 
-def update_a_pixel(update_date, quantity):
-    yyyyMMdd_date = update_date.strftime("%Y%m%d")
+def update_a_pixel(pixel_date, quantity):
+    yyyyMMdd_date = pixel_date.strftime("%Y%m%d")
     post_pixel = {
         "quantity": quantity
     }
     response = requests.put(url=f"{PIXELA_GRAPH_ENDPOINT}/graph1/{yyyyMMdd_date}", json=post_pixel, headers=headers)
     print(response.text)
 
-update_date = datetime(year=2025, month=1, day=14)
-update_a_pixel(update_date, "130")
+def delete_a_pixel(pixel_date):
+    yyyyMMdd_date = pixel_date.strftime("%Y%m%d")
+    response = requests.delete(url=f"{PIXELA_GRAPH_ENDPOINT}/graph1/{yyyyMMdd_date}", headers=headers)
+    print(response.text)
+
+# update_date = datetime(year=2025, month=1, day=14)
+# update_a_pixel(update_date, "130")
+
+delete_date = datetime(year=2025, month=1, day=14)
+delete_a_pixel(delete_date)
 
