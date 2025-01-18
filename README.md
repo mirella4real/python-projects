@@ -2,6 +2,13 @@
 A personal repo for learning and experimentation.
 
 
+### [workout_tracker - 20250114](https://github.com/mirella4real/python-projects/tree/main/workout_tracker)
+
+Created an app that leverages Natural Language queries and saves exercise updates to Google Sheets.  Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
+
+<img src="readme_images/workout_tracker.png" width="290" />
+
+
 ### [habit_tracker - 20250114](https://github.com/mirella4real/python-projects/tree/main/habit_tracker)
 
 Created a graph similar to GitHub's graph for tracking number of minutes studying. This project leverages Pixela API. Intermediate+ project from the [Appbrewery 100 Days of Code](https://www.udemy.com/course/100-days-of-code/) course.
