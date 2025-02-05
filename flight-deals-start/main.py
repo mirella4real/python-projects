@@ -4,5 +4,5 @@ from data_manager import DataManager
 
 flight_data = DataManager()
 
-test_data = flight_data.get_worksheet_data()
-pprint.pprint(test_data)
+sheet_data = flight_data.get_worksheet_data()
+pprint.pprint(sheet_data)

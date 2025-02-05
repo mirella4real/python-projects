@@ -7,6 +7,13 @@ class DataManager:
         pass
 
     def get_worksheet_data(self):
-        response = requests.get(url=SHEETY_API_ENDPOINT, headers=SHEETY_HEADER)
-        return response.json()
+        try:
+            response = requests.get(url=SHEETY_API_ENDPOINT, headers=SHEETY_HEADER)
+            response.raise_for_status() 
+            data = response.json()
+            return data["prices"]
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
+    
 
