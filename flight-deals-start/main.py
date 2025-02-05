@@ -1,10 +1,8 @@
 #This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
-from config import *
-import requests
 import pprint
+from data_manager import DataManager
 
-def get_worksheet_data():
-    response = requests.get(url=SHEETY_API_ENDPOINT, headers=SHEETY_HEADER)
-    return response.json()
+flight_data = DataManager()
 
-pprint.pprint(get_worksheet_data())
+test_data = flight_data.get_worksheet_data()
+pprint.pprint(test_data)
