@@ -14,12 +14,14 @@ TEST_DATA = [{'city': 'Paris', 'iataCode': '', 'id': 2, 'lowestPrice': 54},
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
-        pass
+        init_config()
+        self.SHEETY_API_ENDPOINT = get_sheety_endpoint()
+        self.SHEETY_HEADER = get_sheety_header()
 
     def get_worksheet_data(self):
         if IS_TEST != True:
             try:
-                response = requests.get(url=SHEETY_API_ENDPOINT, headers=SHEETY_HEADER)
+                response = requests.get(url=self.SHEETY_API_ENDPOINT, headers=self.SHEETY_HEADER)
                 response.raise_for_status() 
                 data = response.json()
                 return data["prices"]
@@ -38,13 +40,12 @@ class DataManager:
             }
         }
         try:
-            response = requests.put(url=f"{SHEETY_API_ENDPOINT}/{row["id"]}", json=parameters, headers=SHEETY_HEADER)
+            response = requests.put(url=f"{self.SHEETY_API_ENDPOINT}/{row["id"]}", json=parameters, headers=self.SHEETY_HEADER)
         except requests.exceptions.RequestException as e:
             print(f"An error occurred: {e}")
 
     def update_worksheet(self, data):
         for row in data:
             self.save_worksheet_row(row)
-        print("finished")
     
 

@@ -1,4 +1,3 @@
-#This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 import pprint
 from data_manager import DataManager
 from flight_search import FlightSearch
@@ -14,8 +13,6 @@ def update_iata_codes(cities_list:list):
         updated_cities_list.append(city)
     return updated_cities_list
         
-
-
 sheet_data = flight_data.get_worksheet_data()
 sheet_data = update_iata_codes(sheet_data)
 flight_data.update_worksheet(sheet_data)
