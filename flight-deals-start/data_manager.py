@@ -28,5 +28,23 @@ class DataManager:
                 return None
         else:
             return TEST_DATA
+        
+    def save_worksheet_row(self, row:dict):
+        parameters = {
+            "price": {
+                "city": row["city"],
+                "iataCode": row["iataCode"],
+                "lowestPrice": row["lowestPrice"]
+            }
+        }
+        try:
+            response = requests.put(url=f"{SHEETY_API_ENDPOINT}/{row["id"]}", json=parameters, headers=SHEETY_HEADER)
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+
+    def update_worksheet(self, data):
+        for row in data:
+            self.save_worksheet_row(row)
+        print("finished")
     
 

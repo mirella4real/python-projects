@@ -4,5 +4,4 @@ class FlightSearch:
         pass
 
     def get_iata_code(self, city:str)->str:
-        print(city)
         return "TESTING"
