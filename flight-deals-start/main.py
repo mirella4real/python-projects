@@ -6,11 +6,19 @@ from flight_search import FlightSearch
 flight_data = DataManager()
 flight_search = FlightSearch()
 
-def search_flights(cities_list:list):
+def update_iata_codes(cities_list:list):
+    updated_cities_list = []
     for city in cities_list:
         if len(city["iataCode"]) == 0:
-            print(flight_search.get_iata_code(city["city"]))
+            iata_code = flight_search.get_iata_code(city["city"])
+            city["iataCode"] = iata_code
+        updated_cities_list.append(city)
+    return updated_cities_list
+        
 
 sheet_data = flight_data.get_worksheet_data()
-search_flights(sheet_data)
+sheet_data = update_iata_codes(sheet_data)
+pprint.pprint(sheet_data)
+
+update_iata_codes(sheet_data)
 
