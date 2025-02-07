@@ -1,7 +1,7 @@
 from config import *
 import requests
 
-TEST_DATA = [{'city': 'Paris', 'iataCode': 'h', 'id': 2, 'lowestPrice': 54},
+TEST_DATA = [{'city': 'Paris', 'iataCode': '', 'id': 2, 'lowestPrice': 54},
  {'city': 'Frankfurt', 'iataCode': '', 'id': 3, 'lowestPrice': 42},
  {'city': 'Tokyo', 'iataCode': '', 'id': 4, 'lowestPrice': 485},
  {'city': 'Hong Kong', 'iataCode': '', 'id': 5, 'lowestPrice': 551},
