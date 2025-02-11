@@ -1,5 +1,5 @@
 import pprint
-from config import init_config
+from config import init_config, get_new_token
 from data_manager import DataManager
 from flight_search import FlightSearch
 
