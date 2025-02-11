@@ -14,7 +14,6 @@ TEST_DATA = [{'city': 'Paris', 'iataCode': '', 'id': 2, 'lowestPrice': 54},
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
-        init_config()
         self.SHEETY_API_ENDPOINT = get_sheety_endpoint()
         self.SHEETY_HEADER = get_sheety_header()
 
